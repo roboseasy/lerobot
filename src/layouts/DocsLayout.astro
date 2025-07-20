@@ -209,14 +209,14 @@ const navigation: NavItem[] = [
   .docs-nav {
     background: var(--header-bg);
     backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(253, 115, 24, 0.2);
+    border-bottom: 1px solid #a259ff;
     height: var(--nav-height);
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     z-index: 100;
-    box-shadow: 0 2px 20px rgba(253, 115, 24, 0.1);
+    box-shadow: 0 0 20px #a259ff, 0 0 40px #a259ff;
   }
 
   .nav-container {
@@ -242,7 +242,7 @@ const navigation: NavItem[] = [
   }
   
   .logo img {
-    filter: drop-shadow(0 0 10px rgba(253, 115, 24, 0.5));
+    filter: drop-shadow(0 0 10px #a259ff);
   }
   
   .logo-text {
@@ -286,13 +286,13 @@ const navigation: NavItem[] = [
     left: 50%;
     width: 0;
     height: 2px;
-    background: var(--color-orange);
+    background: #a259ff;
     transition: all 0.3s;
     transform: translateX(-50%);
   }
 
   .nav-links a:hover {
-    color: var(--color-orange);
+    color: #a259ff;
   }
   
   .nav-links a:hover::after {

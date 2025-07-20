@@ -9,7 +9,7 @@
   --color-blue: #5fadfe;
   --color-green: #43d6a8;
   --color-red: #c21829;
-  --color-orange: #fd7318;
+  --color-orange: #a259ff;
   --color-yellow: #fde471;
   --color-light-yellow: #fefca8;
   
@@ -23,6 +23,9 @@
   --color-text-secondary: #e5e5e5;
   --color-text-muted: #a1a1a1;
   --color-text-disabled: #6b6b6b;
+  --color-accent: var(--color-orange);
+  --color-accent-hover: #e0aaff;
+  --color-accent-light: rgba(162, 89, 255, 0.15);
   --color-accent: var(--color-orange);
   --color-accent-hover: #ff8533;
   --color-accent-light: rgba(253, 115, 24, 0.1);
@@ -83,7 +86,7 @@
   --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
   --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15), 0 5px 10px rgba(0, 0, 0, 0.05);
   --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.2);
-  --shadow-glow: 0 0 20px rgba(253, 115, 24, 0.5);
+  --shadow-glow: 0 0 20px #a259ff, 0 0 40px #a259ff;
   --shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
   
   /* 트랜지션 */
