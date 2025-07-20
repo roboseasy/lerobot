@@ -66,7 +66,7 @@ import Layout from '../layouts/Layout.astro';
     <div class="focus-content">
       <h3>HuggingFace LeRobot으로 만드는 Physical AI</h3>
       <p>로봇 팔을 직접 조립하고, AI로 제어하는 실전 프로젝트를 함께 만들어갑니다.</p>
-      <a href="/community/docs/physical-ai/lerobot/intro" target="_blank" class="btn btn-secondary">시작하기</a>
+      <a href="/community/docs/physical-ai/lerobot/intro" target="_blank" class="btn btn-quaternary">시작하기</a>
     </div>
   </section>
 </Layout>
@@ -288,15 +288,16 @@ import Layout from '../layouts/Layout.astro';
   }
   
   .current-focus::after {
-    content: '';
-    position: absolute;
-    top: -50%;
-    right: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(162, 89, 255, 0.15) 0%, transparent 70%);
-    animation: pulse 4s ease-in-out infinite;
-  }
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(162, 89, 255, 0.15) 0%, transparent 70%);
+  animation: pulse 4s ease-in-out infinite;
+  pointer-events: none; /* 이 줄 추가 */
+}
   
   @keyframes pulse {
     0%, 100% { transform: scale(0.8); opacity: 0; }
