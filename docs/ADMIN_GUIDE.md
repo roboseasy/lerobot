@@ -10,21 +10,75 @@
 ## 프로젝트 구조
 
 ```
-community/
-├── src/
-│   ├── pages/           # 페이지 파일들
-│   │   ├── index.astro  # 랜딩 페이지
-│   │   ├── docs/        # Documentation 페이지
-│   │   ├── archive/     # 행사 아카이브
-│   │   └── board/       # 게시판
-│   ├── layouts/         # 레이아웃 컴포넌트
-│   ├── components/      # 재사용 가능한 컴포넌트
-│   └── content/         # MDX 콘텐츠
-│       ├── docs/        # 문서 콘텐츠
-│       └── events/      # 행사 정보
-├── public/              # 정적 파일 (이미지, 폰트 등)
-├── astro.config.mjs     # Astro 설정 파일
-└── package.json         # 프로젝트 의존성
+roboseasy/community/
+├── docs/                        
+│   └── 문서/가이드 파일들
+├── favicon/                    
+│   └── 파비콘/아이콘 이미지 파일들
+├── public/                      # 정적 파일 (웹에서 직접 접근 가능)
+│   └── images/
+│       ├── events/
+│       │   └── 이벤트 용 이미지들 
+│       ├── blogs/
+│       │   └── 블로그 용 이미지들
+│       └── lerobot/
+│           └── 로봇들 문서 용 이미지들 
+├── src/                         # 소스 코드
+│   ├── components/              # 재사용 컴포넌트
+│   │   ├── Callout.astro       # 콜아웃 컴포넌트
+│   │   └── Tabs.astro          # 탭 컴포넌트
+│   │
+│   ├── layouts/                 # 레이아웃 컴포넌트
+│   │   ├── Layout.astro        # 기본 페이지 레이아웃
+│   │   └── DocsLayout.astro    # 문서 전용 레이아웃
+│   │
+│   ├── pages/                   # 페이지 라우팅
+│   │   ├── index.astro         # 홈페이지
+│   │   ├── docs/
+│   │   │   ├── index.astro     # 문서 메인
+│   │   │   └── [...slug].astro # 동적 문서 라우팅
+│   │   ├── events/
+│   │   │   └── index.astro     # 이벤트 페이지
+│   │   └── people/
+│   │       └── index.astro     # 팀 소개
+│   │
+│   ├── content/                 # MDX 콘텐츠
+│   │   ├── config.ts           # 콘텐츠 설정
+│   │   └── docs/
+│   │       ├── index.mdx
+│   │       └── physical-ai/
+│   │           ├── overview.mdx
+│   │           └── lerobot/    # LeRobot 튜토리얼
+│   │               ├── index.mdx
+│   │               ├── intro.mdx
+│   │               ├── getting-started.mdx
+│   │               ├── hardware.mdx
+│   │               ├── hardware/
+│   │               │   ├── koch.mdx
+│   │               │   └── so-101.mdx
+│   │               ├── software/
+│   │               │   ├── installation.mdx
+│   │               │   ├── teleoperation.mdx
+│   │               │   ├── data-collection.mdx
+│   │               │   └── training.mdx
+│   │               ├── tutorials/
+│   │               │   └── imitation-learning.mdx
+│   │               └── policy/
+│   │                   ├── act.mdx
+│   │                   └── smolvla.mdx
+│   │
+│   └── styles/                  # 스타일 파일
+│       ├── global.css          # 전역 스타일
+│       └── custom.css          # 커스텀 스타일
+│
+├── .gitignore                   # Git 무시 파일
+├── astro.config.mjs            # Astro 설정
+├── LICENSE                     # 라이센스
+├── package.json                # 프로젝트 의존성
+├── package-lock.json           # 의존성 잠금 파일
+├── README.md                   # 프로젝트 설명서
+└── tsconfig.json               # TypeScript 설정
+
 ```
 
 ## 초기 설정

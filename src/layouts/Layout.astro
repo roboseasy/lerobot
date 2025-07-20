@@ -6,7 +6,7 @@ export interface Props {
   description?: string;
 }
 
-const { title, description = 'RoboSEasy Community - AI의 문턱을 낮추다' } = Astro.props;
+const { title, description = 'RoboSEasy Community - Physical AI 강국을 꿈꾸며' } = Astro.props;
 ---
 
 <!doctype html>
@@ -15,14 +15,14 @@ const { title, description = 'RoboSEasy Community - AI의 문턱을 낮추다' }
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/png" href="/community/roboseasy.png" />
+    <link rel="icon" type="image/png" href="/community/favicon/roboseasy.png" />
     <title>{title} | RoboSEasy Community</title>
   </head>
   <body>
     <nav>
       <div class="nav-container">
         <a href="/community/" class="logo">
-          <img src="/community/roboseasy.png" alt="RoboSEasy" width="40" height="40" style="border-radius: 50%;" />
+          <img src="/community/favicon/roboseasy.png" alt="RoboSEasy" width="40" height="40" style="border-radius: 50%;" />
           <span class="logo-text">RoboSEasy<span class="cursor">_</span></span>
         </a>
         <button class="mobile-menu-toggle" aria-label="Toggle menu">
@@ -33,7 +33,7 @@ const { title, description = 'RoboSEasy Community - AI의 문턱을 낮추다' }
         <ul class="nav-links">
           <li><a href="/community/">홈</a></li>
           <li><a href="/community/docs">문서</a></li>
-          <li><a href="#" onclick="alert('Coming Soon!'); return false;">구매</a></li>
+          <li><a href="/community/shop">쇼핑</a></li>
           <li><a href="https://github.com/roboseasy/community/discussions" target="_blank">게시판</a></li>
           <li><a href="/community/events">이벤트</a></li>
           <li><a href="/community/people">구성원</a></li>
@@ -46,7 +46,7 @@ const { title, description = 'RoboSEasy Community - AI의 문턱을 낮추다' }
     </main>
     <footer>
       <div class="footer-container">
-        <p>&copy; 2025 RoboSEasy. 누구나 따라하며 배우는 Physical AI.</p>
+        <p>&copy; 2025 RoboSEasy. 모두를 위한 Physical AI.</p>
         <div class="social-links">
           <a href="https://youtube.com/@roboseasy" target="_blank">YouTube</a>
           <a href="https://github.com/roboseasy" target="_blank">GitHub</a>

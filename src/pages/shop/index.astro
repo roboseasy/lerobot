@@ -1,0 +1,99 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+// 제품 정보 배열 (이미지, 이름, 설명, 구매 링크)
+const products = [
+  {
+    image: '/community/images/shop/kiwi.jpg',
+    name: 'LeRobot Kiwi',
+    description: '간단한 설명',
+    link: 'https://yourshop.com/kiwi'
+  },
+  {
+    image: '/community/images/shop/so101.jpg',
+    name: 'LeRobot SO-101',
+    description: '간단한 설명',
+    link: 'https://yourshop.com/so101'
+  }
+];
+---
+
+<Layout title="Shop">
+  <div class="shop-container">
+    <h1>Shop</h1>
+    <p class="subtitle">직접 사용하면서 불편했던 부분을 보안했습니다. </p>
+    <div class="shop-grid">
+      {products.map(product => (
+        <div class="shop-card">
+          <a href="#" onclick="alert('Coming Soon!'); return false;">
+            <img src={product.image} alt={product.name} class="shop-image" />
+          </a>
+          <div class="shop-info">
+            <h3>{product.name}</h3>
+            <p>{product.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .shop-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    color: #fff;
+  }
+  h1 {
+    font-size: 2.5rem;
+    color: #fd7318;
+    margin-bottom: 0.5rem;
+  }
+  .subtitle {
+    font-size: 1.2rem;
+    color: #b8b8b8;
+    margin-bottom: 2.5rem;
+  }
+  .shop-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+  }
+  .shop-card {
+    background: #251730;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .shop-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  }
+  .shop-image {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    background: #333;
+    border-bottom: 1px solid #fd7318;
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+  .shop-info {
+    padding: 1.5rem;
+    text-align: center;
+  }
+  .shop-info h3 {
+    margin-bottom: 0.5rem;
+    color: #fd7318;
+    font-size: 1.3rem;
+  }
+  .shop-info p {
+    color: #b8b8b8;
+    font-size: 1rem;
+  }
+</style>
