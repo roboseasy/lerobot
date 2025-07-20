@@ -1,0 +1,170 @@
+---
+title: 'SO-101 Arm'
+description: 'SO-101 오픈소스 로봇 팔 가이드'
+---
+
+import Callout from '../../../../../components/Callout.astro';
+import Tabs from '../../../../../components/Tabs.astro';
+
+# SO-ARM101 
+
+<div style="margin: 2rem 0;">
+  <img 
+    src="/community/images/lerobot/so101_follower.webp" 
+    alt="SO-ARM101 Follower Arm"
+    style="width: 100%; max-width: 800px; margin: 0 auto; display: block; border-radius: var(--radius-lg); border: 2px solid var(--color-border);"
+  />
+</div>
+
+SO-ARM101은 RobotStudio와 Hugging Face가 협력하여 개발한 오픈소스 로봇 팔입니다. LeRobot 라이브러리와 완벽하게 호환되며, AI 로봇공학 학습에 최적화되어 있습니다.
+
+<Callout type="tip" title="최신 버전">
+  SO-ARM101은 SO-ARM100의 차세대 버전으로, 개선된 배선과 더 쉽게 조립할 수 있는 설계를 특징으로 합니다.
+</Callout>
+
+## 💰 비용 분석
+
+<Tabs tabs={['SO-ARM101 시스템','예산 계획']}>
+  <div class="tab-panel">
+    ### 리더 암 (Leader Arm)
+    - 6x STS3215 서보 모터 (중국 국내가격 약 20,000원 x6)
+    - STServo 드라이버 보드
+    - 7.4V 전원 공급장치
+    - 3D 프린팅 파츠
+    - **예상 비용**: 약 25만원
+    
+    ### 팔로워 암 (Follower Arm)
+    - 6x STS3215 서보 모터 (중국 국내가격 약 20,000원 x6)
+    - STServo 드라이버 보드
+    - 7.4V 전원 공급장치
+    - 3D 프린팅 파츠
+    - **예상 비용**: 약 25만원
+    
+    **총 시스템 비용**: 약 50만원
+
+    Seeed Studio 나 Wowrobo 에서 키트를 주문 할 수 있습니다, 관세, 배송비 다 고려하면 약 50만원 수준에서 중국 직구가 가능합니다.
+    
+    <Callout type="info" title="필자 의견">
+      SO-101은 Feetech 서보를 사용하여 Dynamixel보다 저렴하면서도 스펙상 동일한 토크를 제공합니다.
+      특히 1/345 기어비의 리더 암은 사람이 조작하기 매우 편하게 설계되었습니다.
+      한국에서는 AliExpress나 직구로 서보를 구매하는 것이 경제적입니다.
+
+      다만 문제가 여러가지 있습니다. 제품이 QC가 안 되어 있어요. 복불복이 많습니다. 여분의 모터를 주문하는 것을 추천드립니다.  
+      내구도도 더 안 좋아 보입니다. 사용하다보면 고장나는 경우를 여러번 봤습니다.  
+      Dynamixel 의 특허 침해 이슈가 있습니다. (실제 특허 침해 여부는 제가 판단할 능력이 없습니다.)
+      중국 외 지사가 없어서 A/S 대응이 어렵습니다. 
+    </Callout>
+  </div>
+  <div class="tab-panel">
+    ### 단계별 구매 계획
+    
+    **1단계**: 기본 세트 (약 50만원)
+    - 리더, 팔로워 암용 서보 12개
+    - 드라이버 보드 2개
+    - 전원 공급장치
+    
+    **2단계**: 확장 옵션 (약 10 ~ 만원)
+    - 카메라 및 마운트, 오픈 소스로 여러 에드온 설계도가 있습니다. 
+    - 추가 센서
+  </div>
+</Tabs>
+
+## 🛠️ 제작 가이드
+
+### 3D 프린팅 설정
+
+```
+• 레이어 높이: 0.2mm
+• 노즐 직경: 0.4mm
+• 인필 밀도: 15-20%
+• 권장 소재: PLA+ (강도와 프린팅 용이성의 균형)
+• 서포트: 필요한 부분만 부분적으로
+```
+
+### 조립 가이드
+
+<Callout type="tip" title="조립 팁">
+  공식 GitHub의 조립 매뉴얼을 따라가면서, 각 단계마다 서보 ID를 올바르게 설정하는 것이 중요합니다.
+  서보 디버깅 소프트웨어를 사용하여 먼저 모든 서보의 작동을 확인하세요.
+</Callout>
+
+주요 조립 단계:
+1. 3D 프린팅 파츠 준비 및 후처리
+2. 서보 모터 ID 설정 (0-5번)
+3. 베이스부터 순차적으로 조립
+4. 배선 정리 및 고정
+5. 전원 연결 및 테스트
+
+### 전원 요구사항
+
+<Callout type="warning">
+  전원 사양에 주의하세요:
+  - **전압**: 7.4V (안정적인 DC 전원, 낮춰도 됨. 12V 옵션도 있음)
+  - **전류**: 5A 이상 권장
+</Callout>
+
+## 🚀 소프트웨어 설정
+
+### LeRobot 통합
+
+```bash
+# Feetech 서보 드라이버 설치
+uv pip install -e ".[feetech]"
+
+# 로봇 연결 확인
+python -m lerobot.scripts.find_devices
+```
+
+### 서보 디버깅
+
+<Tabs tabs={['Windows', 'Linux/Mac']}>
+  <div class="tab-panel">
+    Feetech의 공식 디버깅 소프트웨어 사용:
+    - SCServo_Debug_Software
+    - 서보 ID, 속도, 위치 설정 가능
+  </div>
+  <div class="tab-panel">
+    펌웨어 버전이나 설정 툴은 따로 없어서 직접 통신해야함. 권장하지 않음.
+  </div>
+</Tabs>
+
+### 실제 응용
+- 물체 조작 및 픽앤플레이스 작업
+- AI 모델 학습을 위한 데이터 수집
+- 연구 및 교육 플랫폼
+
+### 특징
+- **기어비 최적화**: 리더 암은 1/345로 부드러운 조작
+- **경량 설계**: 전체 무게 약 1.5kg
+- **모듈형 구조**: 쉬운 유지보수 및 업그레이드
+
+## 🔌 확장 옵션
+
+### 선택적 업그레이드
+- **오버헤드 카메라 마운트**: 작업 공간 전체 뷰
+- **손목 카메라**: 정밀한 작업을 위한 근접 뷰
+- **컴플라이언트 그리퍼**: 부드러운 파지
+- **베이스 마운트 옵션**: 안정적인 설치
+- **모바일 베이스**: LeKiwi
+
+## 📚 리소스
+
+### SO-101 공식 자료
+- [GitHub 저장소](https://github.com/TheRobotStudio/SO-ARM100)
+- [3D 파일 및 BOM](https://github.com/TheRobotStudio/SO-ARM100/tree/main/hardware)
+- [조립 매뉴얼](https://github.com/TheRobotStudio/SO-ARM100/blob/main/docs/assembly.md)
+- [LeRobot 통합 가이드](https://huggingface.co/docs/lerobot/robots/so100)
+
+### 커뮤니티
+- [Discord 채널](https://discord.gg/robotstudio)
+- [HuggingFace Discord LeRobot 채널](https://discord.com/invite/s3KuuzsPFb)
+
+<Callout type="success">
+  SO-ARM101은 초보자부터 전문가까지 모두에게 적합한 저가형 로봇 플랫폼입니다.
+  하드웨어 측면에서는 장난감 수준이 맞긴 합니다.
+  활발한 오픈소스 커뮤니티가 지속적으로 개선하고 있으며, 여러분의 기여도 환영합니다!
+</Callout>
+
+---
+
+*SO-101 프로젝트는 지속적으로 발전하고 있습니다. 최신 업데이트는 각 GitHub 저장소를 확인하세요.*

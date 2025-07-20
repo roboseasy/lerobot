@@ -1,0 +1,180 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="문서">
+  <div class="docs-container">
+    <h1>문서</h1>
+    <p class="subtitle">Sudoremove의 AI 교육 자료와 튜토리얼</p>
+    
+    <section class="docs-section">
+      <h2>LeRobot</h2>
+      <div class="docs-grid">
+        <a href="/community/docs/physical-ai/lerobot/intro" class="doc-card">
+          <h3>🤗 LeRobot 시작하기</h3>
+          <p>HuggingFace LeRobot 완벽 가이드</p>
+        </a>
+      </div>
+    </section>
+
+    <section class="docs-section">
+      <h2>LLM 강의 아카이브</h2>
+      <div class="docs-grid">
+        <a href="https://jonhpark7966.github.io/FineTuning_Course/" target="_blank" rel="noopener noreferrer" class="doc-card external-link">
+          <h3>🎓 LLM 파인튜닝 과정</h3>
+          <p>대규모 언어 모델을 직접 파인튜닝하는 방법을 배워보세요</p>
+          <span class="external-icon">↗</span>
+        </a>
+      </div>
+    </section>
+  </div>
+</Layout>
+
+<style>
+  /* 배경색 강제 적용 */
+  body {
+    background: var(--color-background) !important;
+    color: var(--color-text) !important;
+  }
+  
+  
+  .docs-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--spacing-8) var(--spacing-6);
+    color: var(--color-text);
+  }
+
+  h1 {
+    font-size: var(--text-5xl);
+    font-weight: var(--font-extrabold);
+    margin-bottom: var(--spacing-3);
+    background: linear-gradient(135deg, var(--color-text) 0%, var(--color-accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .subtitle {
+    font-size: var(--text-xl);
+    color: var(--color-text-muted);
+    margin-bottom: var(--spacing-12);
+    line-height: var(--leading-relaxed);
+  }
+
+  .docs-section {
+    margin-bottom: var(--spacing-12);
+  }
+
+  .docs-section h2 {
+    font-size: var(--text-3xl);
+    font-weight: var(--font-bold);
+    color: var(--color-text);
+    margin-bottom: var(--spacing-6);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-3);
+  }
+  
+  .docs-section h2::before {
+    content: '';
+    width: 4px;
+    height: 1.5em;
+    background: var(--color-accent);
+    border-radius: var(--radius-sm);
+  }
+
+  .docs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: var(--spacing-6);
+  }
+
+  .doc-card {
+    background: var(--color-surface);
+    padding: var(--spacing-6);
+    border-radius: var(--radius-lg);
+    text-decoration: none;
+    color: var(--color-text);
+    transition: all var(--transition-base);
+    border: 1px solid var(--color-border);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .doc-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-accent), var(--color-yellow));
+    transform: translateX(-100%);
+    transition: transform var(--transition-slow);
+  }
+  
+  .doc-card:hover::before {
+    transform: translateX(0);
+  }
+
+  .doc-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--color-accent);
+    background: var(--color-surface-hover);
+  }
+
+  .doc-card h3 {
+    font-size: var(--text-xl);
+    font-weight: var(--font-semibold);
+    color: var(--color-text);
+    margin-bottom: var(--spacing-3);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-2);
+  }
+
+  .doc-card p {
+    font-size: var(--text-base);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-relaxed);
+  }
+
+  /* 외부 링크 카드 스타일 */
+  .doc-card.external-link {
+    position: relative;
+  }
+
+  .external-icon {
+    position: absolute;
+    top: var(--spacing-4);
+    right: var(--spacing-4);
+    font-size: var(--text-xl);
+    color: var(--color-accent);
+    opacity: 0.7;
+    transition: all var(--transition-base);
+  }
+
+  .doc-card.external-link:hover .external-icon {
+    opacity: 1;
+    transform: translate(2px, -2px);
+  }
+
+
+  /* 모바일 반응형 */
+  @media (max-width: 768px) {
+    .docs-container {
+      padding: var(--spacing-6) var(--spacing-4);
+    }
+    
+    h1 {
+      font-size: var(--text-4xl);
+    }
+    
+    .docs-grid {
+      grid-template-columns: 1fr;
+      gap: var(--spacing-4);
+    }
+  }
+</style>
