@@ -18,7 +18,14 @@ const isActivePath = (href: string, current: string) => {
 };
 
 // 네비게이션 구조
-const navigation = [
+type NavItem = {
+  title: string;
+  href?: string;
+  items?: NavItem[];
+  external?: boolean;
+};
+
+const navigation: NavItem[] = [
   {
     title: 'LeRobot',
     items: [
@@ -96,10 +103,10 @@ const navigation = [
           <ul class="nav-links" id="navLinks">
             <li><a href="/community/">홈</a></li>
             <li><a href="/community/docs">문서</a></li>
-            <li><a href="https://github.com/orgs/roboseasy/discussions" target="_blank">게시판</a></li>
+            <li><a href="#" onclick="alert('Coming Soon!'); return false;">Shop</a></li>
+            <li><a href="#" onclick="alert('Coming Soon!'); return false;">게시판</a></li>
             <li><a href="/community/archive">행사</a></li>
             <li><a href="/community/people">People</a></li>
-            <li><a href="#" onclick="alert('Coming Soon!'); return false;">Shop</a></li>
             <li><a href="https://roboseasy.com" target="_blank">Blog</a></li>
           </ul>
         </div>
@@ -116,7 +123,7 @@ const navigation = [
                   {section.title}
                 </h3>
                 <ul>
-                  {section.items.map((item) => (
+                  {(section.items ?? []).map((item) => (
                     <li>
                       {item.items ? (
                         <>
@@ -125,11 +132,11 @@ const navigation = [
                             {item.title}
                           </span>
                           <ul class="nav-group">
-                            {item.items.map((subItem) => (
+                            {(item.items ?? []).map((subItem) => (
                               <li>
                                 <a 
-                                  href={subItem.href} 
-                                  class={isActivePath(subItem.href, currentPath) ? 'active' : ''}
+                                  href={subItem.href ?? "#"}
+                                  class={subItem.href ? isActivePath(subItem.href, currentPath) ? 'active' : '' : ''}
                                 >
                                   <i class="fas fa-file-alt"></i>
                                   {subItem.title}
@@ -140,8 +147,8 @@ const navigation = [
                         </>
                       ) : (
                         <a 
-                          href={item.href}
-                          class={isActivePath(item.href, currentPath) ? 'active' : ''}
+                          href={item.href ?? "#"}
+                          class={item.href ? isActivePath(item.href, currentPath) ? 'active' : '' : ''}
                           target={item.external ? '_blank' : undefined}
                           rel={item.external ? 'noopener noreferrer' : undefined}
                         >
@@ -694,9 +701,10 @@ const navigation = [
   function toggleMobileMenu() {
     const navLinks = document.getElementById('navLinks');
     const menuBtn = document.querySelector('.mobile-menu-btn');
-    
-    navLinks.classList.toggle('active');
-    menuBtn.classList.toggle('active');
+    if (navLinks && menuBtn) {
+      navLinks.classList.toggle('active');
+      menuBtn.classList.toggle('active');
+    }
   }
 
   // 메뉴 외부 클릭 시 닫기
@@ -704,10 +712,11 @@ const navigation = [
     const navLinks = document.getElementById('navLinks');
     const menuBtn = document.querySelector('.mobile-menu-btn');
     const nav = document.querySelector('.docs-nav');
-    
-    if (!nav.contains(event.target) && navLinks.classList.contains('active')) {
-      navLinks.classList.remove('active');
-      menuBtn.classList.remove('active');
+    if (nav && navLinks && menuBtn) {
+      if (!nav.contains(event.target as Node) && navLinks.classList.contains('active')) {
+        navLinks.classList.remove('active');
+        menuBtn.classList.remove('active');
+      }
     }
   });
 </script>

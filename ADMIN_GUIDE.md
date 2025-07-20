@@ -1,4 +1,4 @@
-# Sudoremove Community 관리자 가이드
+# RoboSEasy Community 관리자 가이드
 
 ## 목차
 1. [프로젝트 구조](#프로젝트-구조)
@@ -37,7 +37,7 @@ community/
 ### 2. 프로젝트 설정
 ```bash
 # 1. 저장소 클론
-git clone https://github.com/sudoremove/community.git
+git clone https://github.com/roboseasy/community.git
 cd community
 
 # 2. 의존성 설치
@@ -50,7 +50,7 @@ npm run dev
 ### 3. GitHub Pages 설정
 1. GitHub 저장소의 Settings > Pages로 이동
 2. Source: "GitHub Actions" 선택
-3. 첫 배포 후 URL 확인: `https://sudoremove.github.io/community`
+3. 첫 배포 후 URL 확인: `https://roboseasy.github.io/community`
 
 ## 콘텐츠 관리
 
@@ -155,7 +155,7 @@ git archive --format=zip HEAD > backup-$(date +%Y%m%d).zip
 ### Giscus (게시판) 설정
 1. https://giscus.app 방문
 2. 저장소 설정:
-   - Repository: `sudoremove/community`
+   - Repository: `roboseasy/community`
    - Discussion Category: `General`
 3. 생성된 설정값을 `src/components/Giscus.astro`에 적용
 
@@ -178,5 +178,5 @@ GitHub Actions를 통한 Slack/Discord 알림:
 
 ## 연락처
 문제 발생 시 다음 채널로 문의:
-- GitHub Issues: https://github.com/sudoremove/community/issues
-- Email: admin@sudoremove.com (예시)
+- GitHub Issues: https://github.com/roboseasy/community/issues
+- Email: admin@roboseasy.com (예시)
