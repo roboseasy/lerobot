@@ -6,7 +6,7 @@ export interface Props {
   description?: string;
 }
 
-const { title, description = 'RoboSeasy Community - AI의 문턱을 낮추다' } = Astro.props;
+const { title, description = 'RoboSEasy Community - AI의 문턱을 낮추다' } = Astro.props;
 const currentPath = Astro.url.pathname;
 
 // 트레일링 슬래시 처리를 위한 헬퍼 함수
@@ -73,7 +73,7 @@ const navigation = [
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/png" href="/community/roboseasy.png" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism-themes/1.9.0/prism-one-dark.min.css">
-    <title>{title} | RoboSeasy Docs</title>
+    <title>{title} | RoboSEasy Docs</title>
   </head>
   <body>
     <div class="docs-layout">
@@ -81,8 +81,8 @@ const navigation = [
       <nav class="docs-nav">
         <div class="nav-container">
           <a href="/community/" class="logo">
-            <img src="/community/roboseasy.png" alt="RoboSeasy" width="40" height="40" style="border-radius: 50%;" />
-            <span class="logo-text">RoboSeasy<span class="cursor">_</span></span>
+            <img src="/community/roboseasy.png" alt="RoboSEasy" width="40" height="40" style="border-radius: 50%;" />
+            <span class="logo-text">RoboSEasy<span class="cursor">_</span></span>
           </a>
           
           <!-- 모바일 메뉴 버튼 -->
