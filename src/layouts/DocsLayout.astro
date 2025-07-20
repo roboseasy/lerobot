@@ -6,7 +6,7 @@ export interface Props {
   description?: string;
 }
 
-const { title, description = 'Sudoremove Community - AI의 문턱을 낮추다' } = Astro.props;
+const { title, description = 'RoboSeasy Community - AI의 문턱을 낮추다' } = Astro.props;
 const currentPath = Astro.url.pathname;
 
 // 트레일링 슬래시 처리를 위한 헬퍼 함수
@@ -71,9 +71,9 @@ const navigation = [
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/jpeg" href="/community/sudormrf.jpg" />
+    <link rel="icon" type="image/png" href="/community/roboseasy.png" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism-themes/1.9.0/prism-one-dark.min.css">
-    <title>{title} | SUDO REMOVE Docs</title>
+    <title>{title} | RoboSeasy Docs</title>
   </head>
   <body>
     <div class="docs-layout">
@@ -81,8 +81,8 @@ const navigation = [
       <nav class="docs-nav">
         <div class="nav-container">
           <a href="/community/" class="logo">
-            <img src="/community/sudormrf.jpg" alt="SUDO REMOVE" width="40" height="40" style="border-radius: 50%;" />
-            <span class="logo-text">sudo rm -rf<span class="cursor">_</span></span>
+            <img src="/community/roboseasy.png" alt="RoboSeasy" width="40" height="40" style="border-radius: 50%;" />
+            <span class="logo-text">RoboSeasy<span class="cursor">_</span></span>
           </a>
           
           <!-- 모바일 메뉴 버튼 -->
@@ -96,11 +96,11 @@ const navigation = [
           <ul class="nav-links" id="navLinks">
             <li><a href="/community/">홈</a></li>
             <li><a href="/community/docs">문서</a></li>
-            <li><a href="https://github.com/orgs/sudormrf-run/discussions" target="_blank">게시판</a></li>
+            <li><a href="https://github.com/orgs/roboseasy/discussions" target="_blank">게시판</a></li>
             <li><a href="/community/archive">행사</a></li>
             <li><a href="/community/people">People</a></li>
             <li><a href="#" onclick="alert('Coming Soon!'); return false;">Shop</a></li>
-            <li><a href="https://sudormrf.run" target="_blank">Blog</a></li>
+            <li><a href="https://roboseasy.com" target="_blank">Blog</a></li>
           </ul>
         </div>
       </nav>
