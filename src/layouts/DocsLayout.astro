@@ -6,7 +6,7 @@ export interface Props {
   description?: string;
 }
 
-const { title, description = 'RoboSEasy Community - 모두를 위한 Physical AI' } = Astro.props;
+const { title, description = 'RoboSEasy Lerobot - 모두를 위한 Physical AI' } = Astro.props;
 const currentPath = Astro.url.pathname;
 
 // 트레일링 슬래시 처리를 위한 헬퍼 함수
@@ -29,36 +29,36 @@ const navigation: NavItem[] = [
   {
     title: 'LeRobot',
     items: [
-      { title: '소개', href: '/community/docs/physical-ai/lerobot/intro' },
-      { title: '시작하기', href: '/community/docs/physical-ai/lerobot/getting-started' },
+      { title: '소개', href: '/lerobot/docs/physical-ai/lerobot/intro' },
+      { title: '시작하기', href: '/lerobot/docs/physical-ai/lerobot/getting-started' },
       {
         title: '하드웨어',
         items: [
-          { title: '선택 가이드', href: '/community/docs/physical-ai/lerobot/hardware' },
-          { title: 'SO-ARM101', href: '/community/docs/physical-ai/lerobot/hardware/so-101' },
-          { title: 'Koch v1.1', href: '/community/docs/physical-ai/lerobot/hardware/koch' },
+          { title: '선택 가이드', href: '/lerobot/docs/physical-ai/lerobot/hardware' },
+          { title: 'SO-ARM101', href: '/lerobot/docs/physical-ai/lerobot/hardware/so-101' },
+          { title: 'Koch v1.1', href: '/lerobot/docs/physical-ai/lerobot/hardware/koch' },
         ]
       },
       {
         title: '소프트웨어',
         items: [
-          { title: '설치', href: '/community/docs/physical-ai/lerobot/software/installation' },
-          { title: 'Teleoperation', href: '/community/docs/physical-ai/lerobot/software/teleoperation' },
-          { title: '데이터 수집', href: '/community/docs/physical-ai/lerobot/software/data-collection' },
-          { title: '학습', href: '/community/docs/physical-ai/lerobot/software/training' },
+          { title: '설치', href: '/lerobot/docs/physical-ai/lerobot/software/installation' },
+          { title: 'Teleoperation', href: '/lerobot/docs/physical-ai/lerobot/software/teleoperation' },
+          { title: '데이터 수집', href: '/lerobot/docs/physical-ai/lerobot/software/data-collection' },
+          { title: '학습', href: '/lerobot/docs/physical-ai/lerobot/software/training' },
         ]
       },
       {
         title: '튜토리얼',
         items: [
-          { title: 'SO-ARM101 Pick & Place 튜토리얼', href: '/community/docs/physical-ai/lerobot/tutorials/imitation-learning' },
+          { title: 'SO-ARM101 Pick & Place 튜토리얼', href: '/lerobot/docs/physical-ai/lerobot/tutorials/imitation-learning' },
         ]
       },
       {
         title: 'Policy',
         items: [
-          { title: 'ACT', href: '/community/docs/physical-ai/lerobot/policy/act' },
-          { title: 'SmolVLA', href: '/community/docs/physical-ai/lerobot/policy/smolvla' },
+          { title: 'ACT', href: '/lerobot/docs/physical-ai/lerobot/policy/act' },
+          { title: 'SmolVLA', href: '/lerobot/docs/physical-ai/lerobot/policy/smolvla' },
         ]
       }
     ]
@@ -78,7 +78,7 @@ const navigation: NavItem[] = [
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/png" href="/community/images/favicon/roboseasy.png" />
+    <link rel="icon" type="image/png" href="/lerobot/images/favicon/roboseasy.png" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism-themes/1.9.0/prism-one-dark.min.css">
     <title>{title} | RoboSEasy Docs</title>
   </head>
@@ -87,8 +87,8 @@ const navigation: NavItem[] = [
       <!-- 헤더 -->
       <nav class="docs-nav">
         <div class="nav-container">
-          <a href="/community/" class="logo">
-            <img src="/community/images/favicon/roboseasy.png" alt="RoboSEasy" width="40" height="40" style="border-radius: 50%;" />
+          <a href="/lerobot/" class="logo">
+            <img src="/lerobot/images/favicon/roboseasy.png" alt="RoboSEasy" width="40" height="40" style="border-radius: 50%;" />
             <span class="logo-text">RoboSEasy<span class="cursor">_</span></span>
           </a>
           
@@ -101,12 +101,12 @@ const navigation: NavItem[] = [
           
           <!-- 네비게이션 메뉴 -->
           <ul class="nav-links" id="navLinks">
-            <li><a href="/community/">홈</a></li>
-            <li><a href="/community/docs">문서</a></li>
-            <li><a href="/community/shop">Shop</a></li>
+            <li><a href="/lerobot/">홈</a></li>
+            <li><a href="/lerobot/docs">문서</a></li>
+            <li><a href="/lerobot/shop">Shop</a></li>
             <li><a href="#" onclick="alert('Coming Soon!'); return false;">게시판</a></li>
-            <li><a href="/community/archive">행사</a></li>
-            <li><a href="/community/people">People</a></li>
+            <li><a href="/lerobot/archive">행사</a></li>
+            <li><a href="/lerobot/people">People</a></li>
             <li><a href="https://roboseasy.com" target="_blank">Blog</a></li>
           </ul>
         </div>

@@ -1,4 +1,4 @@
-# Robos Easy Community 사이트 프로젝트
+# RobosEasy Lerobot 사이트 프로젝트
 
 ## 프로젝트 개요
 
@@ -50,7 +50,7 @@ RoboSEasy 브랜드의 공식 커뮤니티 사이트 구축 프로젝트입니�
 ## 기술 스택
 
 - **프레임워크**: Astro v5.11.0
-- **호스팅**: GitHub Pages (https://roboseasy.github.io/community)
+- **호스팅**: GitHub Pages (https://roboseasy.github.io/lerobot)
 - **게시판**: GitHub Discussions 직접 연동
 - **문서**: MDX (@astrojs/mdx v4.3.0)
 - **스타일**: Dark theme + JetBrains Mono 폰트

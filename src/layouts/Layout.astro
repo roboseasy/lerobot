@@ -6,7 +6,7 @@ export interface Props {
   description?: string;
 }
 
-const { title, description = 'RoboSEasy Community - Physical AI 강국을 꿈꾸며' } = Astro.props;
+const { title, description = 'RoboSEasy LeRobot - Physical AI 강국을 꿈꾸며' } = Astro.props;
 ---
 
 <!doctype html>
@@ -15,14 +15,14 @@ const { title, description = 'RoboSEasy Community - Physical AI 강국을 꿈꾸
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/png" href="/community/images/favicon/roboseasy.png" />
-    <title>{title} | RoboSEasy Community</title>
+    <link rel="icon" type="image/png" href="/lerobot/images/favicon/roboseasy.png" />
+    <title>{title} | RoboSEasy LeRobot</title>
   </head>
   <body>
     <nav>
       <div class="nav-container">
-        <a href="/community/" class="logo">
-          <img src="/community/images/favicon/roboseasy.png" alt="RoboSEasy" width="40" height="40" style="border-radius: 50%;" />
+        <a href="/lerobot/" class="logo">
+          <img src="/lerobot/images/favicon/roboseasy.png" alt="RoboSEasy" width="40" height="40" style="border-radius: 50%;" />
           <span class="logo-text">RoboSEasy<span class="cursor">_</span></span>
         </a>
         <button class="mobile-menu-toggle" aria-label="Toggle menu">
@@ -31,12 +31,12 @@ const { title, description = 'RoboSEasy Community - Physical AI 강국을 꿈꾸
           <span></span>
         </button>
         <ul class="nav-links">
-          <li><a href="/community/">홈</a></li>
-          <li><a href="/community/docs">문서</a></li>
-          <li><a href="/community/shop">쇼핑</a></li>
-          <li><a href="https://github.com/roboseasy/community/discussions" target="_blank">게시판</a></li>
-          <li><a href="/community/events">이벤트</a></li>
-          <li><a href="/community/people">구성원</a></li>
+          <li><a href="/lerobot/">홈</a></li>
+          <li><a href="/lerobot/docs">문서</a></li>
+          <li><a href="/lerobot/shop">쇼핑</a></li>
+          <li><a href="https://github.com/roboseasy/lerobot/discussions" target="_blank">게시판</a></li>
+          <li><a href="/lerobot/events">이벤트</a></li>
+          <li><a href="/lerobot/people">구성원</a></li>
           <li><a href="https://roboseasy.com" target="_blank">블로그</a></li>
         </ul>
       </div>

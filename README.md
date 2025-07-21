@@ -1,4 +1,4 @@
-# Robos Easy Community
+# Robos Easy LeRobot
 
 Robos Easy 브랜드의 공식 커뮤니티 사이트입니다. 함께 만들고 바로 따라할 수 있는 AI 프로젝트 플랫폼을 제공합니다.
 
@@ -6,7 +6,7 @@ Robos Easy 브랜드의 공식 커뮤니티 사이트입니다. 함께 만들고
 
 - **브랜드**: Robos Easy
 - **슬로건**: "AI의 문턱을 낮추다"
-- **URL**: https://roboseasy.github.io/community/
+- **URL**: https://roboseasy.github.io/lerobot/
 - **YouTube**: [@roboseasy](https://youtube.com/@roboseasy)
 - **GitHub**: [roboseasy-run]()
 
