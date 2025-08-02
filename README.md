@@ -125,14 +125,14 @@ npm run preview
 
 ## 🎨 브랜드 색상
 
-- Primary: #a259ff (Neon Purple)
-- Secondary: #5fadfe (Neon Blue)
-- Background: #0a0a0a (Near Black)
+- Primary: `#a259ff` (Neon Purple)
+- Secondary: `#5fadfe` (Neon Blue)
+- Background: `#0a0a0a` (Near Black)
 - Accent Colors:
-  - #43d6a8 (Greenish Neon)
-  - #c21829 (Red Neon)
-  - #fde471 (Yellow Neon)
-  - #fefca8 (Light Yellow Neon)
+  - `#43d6a8` (Greenish Neon)
+  - `#c21829` (Red Neon)
+  - `#fde471` (Yellow Neon)
+  - `#fefca8` (Light Yellow Neon)
 
 ## 📝 콘텐츠 작성 가이드
 
