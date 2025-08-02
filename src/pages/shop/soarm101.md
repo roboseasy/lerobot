@@ -47,6 +47,8 @@
 - 카메라 홀더 
 - 십자 드라이버 증정 
 
+[![Clipchamp-ezgif-com-video-to-gif-converter.gif](https://i.postimg.cc/02P7x2r6/Clipchamp-ezgif-com-video-to-gif-converter.gif)](https://postimg.cc/YjDvz76k)
+
 다음 영상과 같이 알리익스프레스로 받은 패키지 상품의 어댑터의 경우 3구 멀티탭에 전원 어댑터 2개와 노트북 전원 어댑터를 함께 사용하지 못합니다. 
 
 ![이미지3](https://github-production-user-asset-6210df.s3.amazonaws.com/221774907/473671477-fa08089c-da91-4a0c-b2f8-b3870686601e.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20250802%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250802T081235Z&X-Amz-Expires=300&X-Amz-Signature=235b7201dececac4b5381329f161b9f68669a8d91b055efecfbb6cc56029a8c5&X-Amz-SignedHeaders=host)
