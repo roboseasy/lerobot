@@ -20,6 +20,11 @@
 
 알리익스프레스와 가격 비교를 해보세요.
 
+### 저희는 해당 제품을 구매하여 huggingface lerobot의 코드를 실제 돌려보면서 불편함과 어려움을 느꼈습니다.
+
+그래서 어떻게 하면 신규 도전자들이 포기하지 않고 조금 더 쉽게 사용하게 할 수 없을까 고민을 하게 되었고 저희 패키징 제품을 판매하게 되었습니다.
+
+
 
 ![이미지1](https://github-production-user-asset-6210df.s3.amazonaws.com/221774907/473669698-ad2df901-5b8c-4d59-8e04-603505c3ca3c.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20250802%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250802T074216Z&X-Amz-Expires=300&X-Amz-Signature=cf5af46fd63de182772b5deec7ba9e8d2b344306237a74c526fd48d2833eddc6&X-Amz-SignedHeaders=host)
 
@@ -34,4 +39,43 @@
 
 2-3주라는 시간이 지나고 알리익스프레스에서 한국 공항 도착이라는 알람을 받을 수 있습니다. 그리고 몇주를 기다려도 집앞으로 택배가 안옵니다. 모르는 카톡이 왔지만 무시했습니다. 그러나 해당 상품에 대한 관세를 보내라는 국내 관세 법인의 카톡입니다. 10% 관세를 내고 나면 최종적으로, 온라인 주문 이후 3-4주 뒤에 받게 됩니다. 
 
+---
+
+# 판매 상품 특징 
+
+- 전원 어댑터 
+- 카메라 홀더 
+- 십자 드라이버 증정 
+
+다음 영상과 같이 알리익스프레스로 받은 패키지 상품의 어댑터의 경우 3구 멀티탭에 전원 어댑터 2개와 노트북 전원 어댑터를 함께 사용하지 못합니다. 
+
+![이미지3](https://github-production-user-asset-6210df.s3.amazonaws.com/221774907/473671477-fa08089c-da91-4a0c-b2f8-b3870686601e.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20250802%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250802T081235Z&X-Amz-Expires=300&X-Amz-Signature=235b7201dececac4b5381329f161b9f68669a8d91b055efecfbb6cc56029a8c5&X-Amz-SignedHeaders=host)
+
+저희가 준비한 어댑터는 얇은 전원 어댑터로 KC 인증을 받은 제품입니다.
+
+---
+
+[![IMG-2041.jpg](https://i.postimg.cc/qqwcw9VJ/IMG-2041.jpg)](https://postimg.cc/tn1VCv4w)
+
+모방 학습 또는 VLA 모델 학습 시, AI 모델에게 입력해줄 영상이 필요 합니다. 이 영상에서와 같이 삼각대를 이용해서 데이터셋을 구축합니다. 
+
+이렇게 힘들게 세팅을 하고 힘들게 수십~수백개의 영상 데이터를 쌓는 도중 삼각대를 옮겼거나, 툭 쳤다면? 
+다시 쌓아야 합니다. 
+
+[![IMG-2844.jpg](https://i.postimg.cc/t4xZCLSs/IMG-2844.jpg)](https://postimg.cc/18y5vYZS)
+
+
+이런 문제를 해결 하고, 다양한 장소에서도 항상 똑같은 카메라 위치 세팅을 위해 저희는 카메라 홀더를 함께 제공합니다. 
+
+---
+
+저희는 고객님들이 저희 제품을 구매하시고 추가적으로 어떤 것도 구매하기 위해 방 밖을 나가지 않게 해드리는 것이 저희의 목표입니다. 
+
+lerobot so-arm 101 을 조립하기 위해서 십자 드라이버가 필요합니다. 
+
+지금 당장 십자 드라이버가 없는 상황에서 빠르게 십자 드리아버를 구하기 위해서는 가까운 다이소에서 5천원 십자 드리아버 세트를 구매하시면 됩니다.
+
+[![IMG-2853.jpg](https://i.postimg.cc/rFcRFn6j/IMG-2853.jpg)](https://postimg.cc/XXHYsgYB)
+
+그러나 저희 제품을 구매하시는 고객님은 그런 수고로움을 가지실 필요 없습니다. 저희 제품을 구매하시면 십자 드라이버를 드립니다.
 
