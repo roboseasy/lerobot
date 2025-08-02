@@ -5,7 +5,7 @@ Robos Easy 브랜드의 공식 커뮤니티 사이트입니다. 함께 만들고
 ## 🚀 프로젝트 개요
 
 - **브랜드**: Robos Easy
-- **슬로건**: "누구나 따라하는 Physical AI"
+- **슬로건**: "모두를 위한 Physical AI"
 - **URL**: https://roboseasy.github.io/lerobot/
 - **YouTube**: [@roboseasy](https://youtube.com/@roboseasy)
 - **GitHub**: [roboseasy]()
@@ -108,6 +108,13 @@ roboseasy/lerobot/
 - npm 또는 yarn
 
 ### 설치 및 실행
+
+[Node.js 설치](https://nodejs.org/ko/download)
+
+```bash
+# v18 이상인지 확인
+node -v
+```
 
 ```bash
 # 의존성 설치
