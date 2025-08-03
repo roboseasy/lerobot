@@ -109,6 +109,8 @@ RoboSEasy 브랜드의 공식 커뮤니티 사이트 구축 프로젝트입니�
 - [x] YouTube 콘텐츠 임베드
 - [x] People 페이지 구현
 - [x] 네비게이션 통일 (sudo rm -rf_ 스타일)
+- [x] SEO 최적화 (sitemap, Open Graph)
+- [x] Shop 페이지 오픈
 
 ### 진행 예정 작업 📋
 - [ ] Physical AI 튜토리얼 콘텐츠 작성
@@ -116,8 +118,6 @@ RoboSEasy 브랜드의 공식 커뮤니티 사이트 구축 프로젝트입니�
 - [ ] GitHub Actions 워크플로우 설계 및 구현
 - [ ] 외부 채널 알림 연동 (Slack, Discord, 카카오톡)
 - [ ] 뉴스레터 템플릿 및 자동화 시스템
-- [ ] SEO 최적화 (sitemap, Open Graph)
-- [ ] Shop 페이지 오픈
 - [ ] AI 뉴스 자동 수집 및 GitHub Discussions 포스팅 시스템
   - LLM을 활용한 뉴스/링크 요약 및 정리
   - 주간/일간 단위로 자동 Discussion 생성

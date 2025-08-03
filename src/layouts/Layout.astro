@@ -18,6 +18,27 @@ const { title, description = 'RoboSEasy LeRobot - Physical AI 강국을 꿈꾸�
     <meta name="google-site-verification" content="CEmZHYwlKbx2sbv2NlsOO50SoC_3OwVLm__H5l54uKc" />
     <link rel="icon" type="image/png" href="/lerobot/images/favicon/roboseasy.png" />
     <title>{title} | RoboSEasy LeRobot</title>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PLC366SRZL"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-PLC366SRZL');
+    </script>
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="RoboSEasy LeRobot" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content="https://roboseasy.github.io/lerobot/" />
+    <meta property="og:image" content="https://roboseasy.github.io/lerobot/images/favicon/roboseasy.png" />
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="https://roboseasy.github.io/lerobot/images/favicon/roboseasy.png" />
   </head>
   <body>
     <nav>
