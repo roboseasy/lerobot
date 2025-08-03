@@ -120,6 +120,8 @@ node -v
 # 의존성 설치
 npm install
 
+npm install swiper photoswipe
+
 # 개발 서버 실행 (http://localhost:4321)
 npm run dev
 
