@@ -10,7 +10,7 @@ import Layout from '../../layouts/Layout.astro';
     <section class="docs-section">
       <h2>Physical LeRobot</h2>
       <div class="docs-grid">
-        <a href="/lerobot/docs/physical-ai/lerobot/intro" class="doc-card">
+        <a href="/lerobot/docs/physical-ai/lerobot/intro" class="doc-card lerobot-card">
           <h3>🤗 LeRobot 시작하기</h3>
           <p>HuggingFace LeRobot을 소개합니다</p>
         </a>
@@ -18,7 +18,7 @@ import Layout from '../../layouts/Layout.astro';
           <h3>🤗 SO ARM 시작하기</h3>
           <p>LeRobot SO ARM 완벽 가이드</p>
         </a>
-        <a href="/lerobot/docs/physical-ai/lerobot/hardware/so-101" class="doc-card lekiwi-card">
+        <a class="doc-card lekiwi-card" onclick="alert('Comming Soon!')" style="cursor: pointer;">
           <h3>🤗 LeKiWi 시작하기</h3>
           <p>LeRobot LeKiWi 완벽 가이드</p>
         </a>
@@ -28,13 +28,13 @@ import Layout from '../../layouts/Layout.astro';
     <section class="docs-section">
       <h2>Simulation LeRobot</h2>
       <div class="docs-grid">
-        <a href="https://jonhpark7966.github.io/FineTuning_Course/" target="_blank" rel="noopener noreferrer" class="doc-card external-link">
-          <h3>🕹️ Isaac Sim 시작하기</h3>
-          <p>Isaac Sim에서 LeRobot의 다양한 로봇들을 접해보세요.</p>
+        <a class="doc-card leisaac-card" onclick="alert('Comming Soon!')" style="cursor: pointer;">
+          <h3>🕹️ Isaac Sim/Lab 시작하기</h3>
+          <p>Isaac Sim/Lab에서 LeRobot의 다양한 로봇들을 접해보세요.</p>
           <span class="external-icon">↗</span>
         </a>
 
-        <a href="https://jonhpark7966.github.io/FineTuning_Course/" target="_blank" rel="noopener noreferrer" class="doc-card external-link">
+        <a class="doc-card lemujoco-card" onclick="alert('Comming Soon!')" style="cursor: pointer;">
           <h3>🎮 Mujoco 시작하기</h3>
           <p>Mujoco에서 LeRobot의 다양한 로봇들을 접해보세요.</p>
           <span class="external-icon">↗</span>
@@ -48,31 +48,31 @@ import Layout from '../../layouts/Layout.astro';
     <section class="docs-section">
       <h2>Our Robot</h2>
       <div class="docs-grid">
-        <a href="https://jonhpark7966.github.io/FineTuning_Course/" target="_blank" rel="noopener noreferrer" class="doc-card external-link">
+        <a class="doc-card external-link" onclick="alert('Comming Soon!')" style="cursor: pointer;">
           <h3>🦾 양팔 로봇</h3>
           <p>LeRobot SO ARM 을 이용한 양팔 로봇</p>
           <span class="external-icon">↗</span>
         </a>
 
-        <a href="https://jonhpark7966.github.io/FineTuning_Course/" target="_blank" rel="noopener noreferrer" class="doc-card external-link">
+        <a class="doc-card external-link" onclick="alert('Comming Soon!')" style="cursor: pointer;">
           <h3>🦾 모바일 양팔 로봇</h3>
           <p>LeRobot LeKiWi 를 이용한 모바일 양팔 로봇</p>
           <span class="external-icon">↗</span>
         </a>
 
-        <a href="https://jonhpark7966.github.io/FineTuning_Course/" target="_blank" rel="noopener noreferrer" class="doc-card external-link">
+        <a class="doc-card external-link" onclick="alert('Comming Soon!')" style="cursor: pointer;">
           <h3>🤖 모바일 휴모노이드</h3>
           <p>모바일 양팔 로봇을 기반으로 어깨와 허리가 추가된 모바일 휴모노이드</p>
           <span class="external-icon">↗</span>
         </a>
 
-        <a href="https://jonhpark7966.github.io/FineTuning_Course/" target="_blank" rel="noopener noreferrer" class="doc-card external-link">
+        <a class="doc-card external-link" onclick="alert('Comming Soon!')" style="cursor: pointer;">
           <h3>🦿 이족 보행 로봇</h3>
           <p>NVIDIA Blue와 같은 이족 보행 로봇</p>
           <span class="external-icon">↗</span>
         </a>
 
-        <a href="https://jonhpark7966.github.io/FineTuning_Course/" target="_blank" rel="noopener noreferrer" class="doc-card external-link">
+        <a class="doc-card external-link" onclick="alert('Comming Soon!')" style="cursor: pointer;">
           <h3>🤖 휴모노이드</h3>
           <p>이족 보행 로봇에 앙팔을 추가한 휴모노이드</p>
           <span class="external-icon">↗</span>
@@ -235,16 +235,20 @@ import Layout from '../../layouts/Layout.astro';
       gap: var(--spacing-4);
     }
   }
+  .lerobot-card,
   .soarm-card,
-  .lekiwi-card {
+  .lekiwi-card,
+  .leisaac-card {
     position: relative;
     overflow: hidden;
     background: #111 !important;
     transition: background 0.3s;
     z-index: 1;
   }
+  .lerobot-card::after,
   .soarm-card::after,
-  .lekiwi-card::after {
+  .lekiwi-card::after,
+  .leisaac-card::after {
     content: '';
     position: absolute;
     top: 5%;
@@ -259,6 +263,11 @@ import Layout from '../../layouts/Layout.astro';
     transition: opacity 0.3s;
     z-index: 0;
   }
+  .lerobot-card::after {
+    background-image:
+      linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+      url('/lerobot/images/lerobot/huggingface_lerobot.jpg');
+  }
   .soarm-card::after {
     background-image:
       linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
@@ -269,14 +278,28 @@ import Layout from '../../layouts/Layout.astro';
       linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
       url('/lerobot/images/lerobot/roboseasy_lekiwi.jpg');
   }
+  .leisaac-card::after {
+    background-image:
+      linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+      url('/lerobot/images/lerobot/leisaac.jpg');
+  }
+  .leisaac-card:hover::after,
+  .lemujoco-card:hover::after,
+  .lerobot-card:hover::after,
   .soarm-card:hover::after,
   .lekiwi-card:hover::after {
     opacity: 1;
   }
+  .leisaac-card:hover,
+  .lerobot-card:hover,
   .soarm-card:hover,
   .lekiwi-card:hover {
     background: #111 !important;
   }
+  .leisaac-card:hover h3,
+  .leisaac-card:hover p,
+  .lerobot-card:hover h3,
+  .lerobot-card:hover p,
   .soarm-card:hover h3,
   .soarm-card:hover p,
   .lekiwi-card:hover h3,
