@@ -5,29 +5,87 @@ import Layout from '../../layouts/Layout.astro';
 <Layout title="문서">
   <div class="docs-container">
     <h1>문서</h1>
-    <p class="subtitle">RoboSEasy의 AI 교육 자료와 튜토리얼</p>
+    <p class="subtitle">RoboSEasy의 Physical AI 자료와 튜토리얼</p>
     
     <section class="docs-section">
-      <h2>LeRobot</h2>
+      <h2>Physical LeRobot</h2>
       <div class="docs-grid">
         <a href="/lerobot/docs/physical-ai/lerobot/intro" class="doc-card">
           <h3>🤗 LeRobot 시작하기</h3>
-          <p>HuggingFace LeRobot 완벽 가이드</p>
+          <p>HuggingFace LeRobot을 소개합니다</p>
+        </a>
+        <a href="/lerobot/docs/physical-ai/lerobot/hardware/so-101" class="doc-card soarm-card">
+          <h3>🤗 SO ARM 시작하기</h3>
+          <p>LeRobot SO ARM 완벽 가이드</p>
+        </a>
+        <a href="/lerobot/docs/physical-ai/lerobot/hardware/so-101" class="doc-card lekiwi-card">
+          <h3>🤗 LeKiWi 시작하기</h3>
+          <p>LeRobot LeKiWi 완벽 가이드</p>
         </a>
       </div>
     </section>
 
     <section class="docs-section">
-      <h2>LLM 강의 아카이브</h2>
+      <h2>Simulation LeRobot</h2>
       <div class="docs-grid">
         <a href="https://jonhpark7966.github.io/FineTuning_Course/" target="_blank" rel="noopener noreferrer" class="doc-card external-link">
-          <h3>🎓 LLM 파인튜닝 과정</h3>
-          <p>대규모 언어 모델을 직접 파인튜닝하는 방법을 배워보세요</p>
+          <h3>🕹️ Isaac Sim 시작하기</h3>
+          <p>Isaac Sim에서 LeRobot의 다양한 로봇들을 접해보세요.</p>
           <span class="external-icon">↗</span>
         </a>
+
+        <a href="https://jonhpark7966.github.io/FineTuning_Course/" target="_blank" rel="noopener noreferrer" class="doc-card external-link">
+          <h3>🎮 Mujoco 시작하기</h3>
+          <p>Mujoco에서 LeRobot의 다양한 로봇들을 접해보세요.</p>
+          <span class="external-icon">↗</span>
+        </a>
+
+        
       </div>
     </section>
+
+
+    <section class="docs-section">
+      <h2>Our Robot</h2>
+      <div class="docs-grid">
+        <a href="https://jonhpark7966.github.io/FineTuning_Course/" target="_blank" rel="noopener noreferrer" class="doc-card external-link">
+          <h3>🦾 양팔 로봇</h3>
+          <p>LeRobot SO ARM 을 이용한 양팔 로봇</p>
+          <span class="external-icon">↗</span>
+        </a>
+
+        <a href="https://jonhpark7966.github.io/FineTuning_Course/" target="_blank" rel="noopener noreferrer" class="doc-card external-link">
+          <h3>🦾 모바일 양팔 로봇</h3>
+          <p>LeRobot LeKiWi 를 이용한 모바일 양팔 로봇</p>
+          <span class="external-icon">↗</span>
+        </a>
+
+        <a href="https://jonhpark7966.github.io/FineTuning_Course/" target="_blank" rel="noopener noreferrer" class="doc-card external-link">
+          <h3>🤖 모바일 휴모노이드</h3>
+          <p>모바일 양팔 로봇을 기반으로 어깨와 허리가 추가된 모바일 휴모노이드</p>
+          <span class="external-icon">↗</span>
+        </a>
+
+        <a href="https://jonhpark7966.github.io/FineTuning_Course/" target="_blank" rel="noopener noreferrer" class="doc-card external-link">
+          <h3>🦿 이족 보행 로봇</h3>
+          <p>NVIDIA Blue와 같은 이족 보행 로봇</p>
+          <span class="external-icon">↗</span>
+        </a>
+
+        <a href="https://jonhpark7966.github.io/FineTuning_Course/" target="_blank" rel="noopener noreferrer" class="doc-card external-link">
+          <h3>🤖 휴모노이드</h3>
+          <p>이족 보행 로봇에 앙팔을 추가한 휴모노이드</p>
+          <span class="external-icon">↗</span>
+        </a>
+
+
+      </div>
+      
+
+    </section>
+
   </div>
+
 </Layout>
 
 <style>
@@ -176,5 +234,55 @@ import Layout from '../../layouts/Layout.astro';
       grid-template-columns: 1fr;
       gap: var(--spacing-4);
     }
+  }
+  .soarm-card,
+  .lekiwi-card {
+    position: relative;
+    overflow: hidden;
+    background: #111 !important;
+    transition: background 0.3s;
+    z-index: 1;
+  }
+  .soarm-card::after,
+  .lekiwi-card::after {
+    content: '';
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    width: 90%;
+    height: 90%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: var(--radius-md);
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: 0;
+  }
+  .soarm-card::after {
+    background-image:
+      linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+      url('/lerobot/images/lerobot/roboseasy_so_arm.jpg');
+  }
+  .lekiwi-card::after {
+    background-image:
+      linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+      url('/lerobot/images/lerobot/roboseasy_lekiwi.jpg');
+  }
+  .soarm-card:hover::after,
+  .lekiwi-card:hover::after {
+    opacity: 1;
+  }
+  .soarm-card:hover,
+  .lekiwi-card:hover {
+    background: #111 !important;
+  }
+  .soarm-card:hover h3,
+  .soarm-card:hover p,
+  .lekiwi-card:hover h3,
+  .lekiwi-card:hover p {
+    text-shadow: 0 2px 8px rgba(0,0,0,0.7), 0 0 2px #000;
+    position: relative;
+    z-index: 1;
   }
 </style>
