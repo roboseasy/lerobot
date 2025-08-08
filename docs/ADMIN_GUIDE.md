@@ -39,7 +39,7 @@ roboseasy/lerobot/
 │   │   │   └── [...slug].astro # 동적 문서 라우팅
 │   │   ├── events/
 │   │   │   └── index.astro     # 이벤트 페이지
-│   │   └── people/
+│   │   └── 구성원/
 │   │       └── index.astro     # 팀 소개
 │   │
 │   ├── content/                 # MDX 콘텐츠
