@@ -33,7 +33,7 @@ SO-101은 6축 오픈소스 로봇 팔로, 3D 프린팅 부품과 STS3215 서보
 - Feetech SDK도 추가로 설치해야 합니다.
 
 ```bash
-pip install -e ".\[feetech\]"
+pip install -e ".[feetech]"
 ```
 
 ---
@@ -43,46 +43,76 @@ pip install -e ".\[feetech\]"
 아래는 각 관절(Joint)별 조립 방법과 참고 동영상입니다.
 
 <Tabs tabs={["Joint 1 (베이스)", "Joint 2 (숄더)", "Joint 3 (엘보)", "Joint 4 (손목 굽힘)", "Joint 5 (손목 회전)", "Gripper (집게)"]}>
-  <div label="Joint 1 (베이스)" class="tab-panel">
-    1. 첫 번째 모터를 베이스에 넣고, M2x6mm 나사 4개(위 2개, 아래 2개)로 고정합니다.<br/>
-    2. 모터 홀더를 끼우고, M2x6mm 나사 2개(양쪽 각 1개)로 고정합니다.<br/>
-    3. 모터 혼 2개를 설치하고, 상단 혼은 M3x6mm 나사로 고정합니다.<br/>
-    4. 숄더 부품을 부착하고, M3x6mm 나사 4개(위 4개, 아래 4개)로 고정합니다.<br/>
-    5. 숄더 모터 홀더를 추가합니다.<br/>
-    <video src="/images/lerobot/Joint1_v2.mp4" controls width="100%"></video>
-  </div>
-  <div label="Joint 2 (숄더)" class="tab-panel">
-    1. 두 번째 모터를 위에서 삽입합니다.<br/>
-    2. M2x6mm 나사 4개로 고정합니다.<br/>
-    3. 모터 혼 2개를 설치하고, M3x6mm 혼 나사로 고정합니다.<br/>
-    4. 상완 부품을 M3x6mm 나사 4개씩 양쪽에 고정합니다.<br/>
-    <video src="/images/lerobot/Joint2_v2.mp4" controls width="100%"></video>
-  </div>
-  <div label="Joint 3 (엘보)" class="tab-panel">
-    1. 세 번째 모터를 삽입하고, M2x6mm 나사 4개로 고정합니다.<br/>
-    2. 모터 혼 2개를 설치하고, M3x6mm 혼 나사로 고정합니다.<br/>
-    3. 전완 부품을 M3x6mm 나사 4개씩 양쪽에 고정합니다.<br/>
-    <video src="/images/lerobot/Joint3_v2.mp4" controls width="100%"></video>
-  </div>
-  <div label="Joint 4 (손목 굽힘)" class="tab-panel">
-    1. 모터 홀더 4번을 끼웁니다.<br/>
-    2. 네 번째 모터를 삽입합니다.<br/>
-    3. M2x6mm 나사 4개로 고정하고, 모터 혼을 설치한 뒤 M3x6mm 혼 나사로 고정합니다.<br/>
-    <video src="/images/lerobot/Joint4_v2.mp4" controls width="100%"></video>
-  </div>
-  <div label="Joint 5 (손목 회전)" class="tab-panel">
-    1. 다섯 번째 모터를 손목 홀더에 넣고, M2x6mm 전면 나사 2개로 고정합니다.<br/>
-    2. 모터 혼 1개를 설치하고, M3x6mm 혼 나사로 고정합니다.<br/>
-    3. 손목 부품을 M3x6mm 나사 4개씩 양쪽에 고정합니다.<br/>
-    <video src="/images/lerobot/Joint5_v2.mp4" controls width="100%"></video>
-  </div>
-  <div label="Gripper (집게)" class="tab-panel">
-    1. 그리퍼를 5번 모터에 부착하고, 손목의 모터 혼에 M3x6mm 나사 4개로 고정합니다.<br/>
-    2. 그리퍼 모터를 삽입하고, M2x6mm 나사 2개씩 양쪽에 고정합니다.<br/>
-    3. 모터 혼을 설치하고, M3x6mm 혼 나사로 고정합니다.<br/>
-    4. 그리퍼 클로를 M3x6mm 나사 4개씩 양쪽에 고정합니다.<br/>
-    <video src="/images/lerobot/Gripper_v2.mp4" controls width="100%"></video>
-  </div>
+<div label="Joint 1 (베이스)" class="tab-panel">
+1. 첫 번째 모터를 베이스에 넣고, M2x6mm 나사 4개(위 2개, 아래 2개)로 고정합니다.<br/>
+2. 모터 홀더를 끼우고, M2x6mm 나사 2개(양쪽 각 1개)로 고정합니다.<br/>
+3. 모터 혼 2개를 설치하고, 상단 혼은 M3x6mm 나사로 고정합니다.<br/>
+4. 숄더 부품을 부착하고, M3x6mm 나사 4개(위 4개, 아래 4개)로 고정합니다.<br/>
+5. 숄더 모터 홀더를 추가합니다.<br/>
+<div class="video-container">
+  <video controls width="100%" preload="metadata" muted>
+<source src="/lerobot/images/lerobot/Joint1_v2.mp4" type="video/mp4" />
+    동영상을 지원하지 않는 브라우저입니다.
+  </video>
+</div>
+</div>
+<div label="Joint 2 (숄더)" class="tab-panel">
+1. 두 번째 모터를 위에서 삽입합니다.<br/>
+2. M2x6mm 나사 4개로 고정합니다.<br/>
+3. 모터 혼 2개를 설치하고, M3x6mm 혼 나사로 고정합니다.<br/>
+4. 상완 부품을 M3x6mm 나사 4개씩 양쪽에 고정합니다.<br/>
+<div class="video-container">
+  <video controls width="100%" preload="metadata" muted>
+<source src="/lerobot/images/lerobot/Joint2_v2.mp4" type="video/mp4" />
+    동영상을 지원하지 않는 브라우저입니다.
+  </video>
+</div>
+</div>
+<div label="Joint 3 (엘보)" class="tab-panel">
+1. 세 번째 모터를 삽입하고, M2x6mm 나사 4개로 고정합니다.<br/>
+2. 모터 혼 2개를 설치하고, M3x6mm 혼 나사로 고정합니다.<br/>
+3. 전완 부품을 M3x6mm 나사 4개씩 양쪽에 고정합니다.<br/>
+<div class="video-container">
+  <video controls width="100%" preload="metadata" muted>
+<source src="/lerobot/images/lerobot/Joint3_v2.mp4" type="video/mp4" />
+    동영상을 지원하지 않는 브라우저입니다.
+  </video>
+</div>
+</div>
+<div label="Joint 4 (손목 굽힘)" class="tab-panel">
+1. 모터 홀더 4번을 끼웁니다.<br/>
+2. 네 번째 모터를 삽입합니다.<br/>
+3. M2x6mm 나사 4개로 고정하고, 모터 혼을 설치한 뒤 M3x6mm 혼 나사로 고정합니다.<br/>
+<div class="video-container">
+  <video controls width="100%" preload="metadata" muted>
+<source src="/lerobot/images/lerobot/Joint4_v2.mp4" type="video/mp4" />
+    동영상을 지원하지 않는 브라우저입니다.
+  </video>
+</div>
+</div>
+<div label="Joint 5 (손목 회전)" class="tab-panel">
+1. 다섯 번째 모터를 손목 홀더에 넣고, M2x6mm 전면 나사 2개로 고정합니다.<br/>
+2. 모터 혼 1개를 설치하고, M3x6mm 혼 나사로 고정합니다.<br/>
+3. 손목 부품을 M3x6mm 나사 4개씩 양쪽에 고정합니다.<br/>
+<div class="video-container">
+  <video controls width="100%" preload="metadata" muted>
+<source src="/lerobot/images/lerobot/Joint5_v2.mp4" type="video/mp4" />
+    동영상을 지원하지 않는 브라우저입니다.
+  </video>
+</div>
+</div>
+<div label="Gripper (집게)" class="tab-panel">
+1. 그리퍼를 5번 모터에 부착하고, 손목의 모터 혼에 M3x6mm 나사 4개로 고정합니다.<br/>
+2. 그리퍼 모터를 삽입하고, M2x6mm 나사 2개씩 양쪽에 고정합니다.<br/>
+3. 모터 혼을 설치하고, M3x6mm 혼 나사로 고정합니다.<br/>
+4. 그리퍼 클로를 M3x6mm 나사 4개씩 양쪽에 고정합니다.<br/>
+<div class="video-container">
+  <video controls width="100%" preload="metadata" muted>
+<source src="/lerobot/images/lerobot/Gripper_v2.mp4" type="video/mp4" />
+    동영상을 지원하지 않는 브라우저입니다.
+  </video>
+</div>
+</div>
 </Tabs>
 
 ---

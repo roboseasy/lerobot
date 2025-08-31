@@ -79,3 +79,20 @@ table td, table th {
   font-size: 0.875rem;
   font-weight: 600;
 }
+
+/* 비디오 컨테이너: 반응형 및 중앙 정렬 */
+.video-container {
+  max-width: 600px;
+  margin: 2rem auto;
+  background: #181828;
+  border-radius: 1rem;
+  box-shadow: 0 2px 12px 0 rgba(0,0,0,0.15);
+  padding: 1rem;
+}
+.video-container video {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 0.5rem;
+  background: #000;
+}
