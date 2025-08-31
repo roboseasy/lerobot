@@ -1,0 +1,275 @@
+---
+title: 'Teleoperation 가이드'
+description: 'LeRobot으로 로봇을 원격 조작하는 방법'
+---
+
+import Callout from '../../../../../../components/Callout.astro';
+import Tabs from '../../../../../../components/Tabs.astro';
+
+<Callout type="info" title="Teleoperation이란?">
+  Teleoperation(원격 조작)은 로봇을 원격으로 제어하는 기술입니다. LeRobot에서는 주로 리더-팔로워 방식을 사용하여 직관적인 로봇 제어와 데이터 수집을 수행합니다.
+</Callout>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin: 2rem 0;">
+  <iframe 
+    src="https://www.youtube.com/embed/MGH44s5suK0" 
+    title="ROBOTIS OMY Teleoperation"
+    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; border-radius: var(--radius-lg);"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+    allowfullscreen
+  ></iframe>
+</div>
+
+## 리더-팔로워 방식 개요
+
+리더-팔로워(Leader-Follower) 방식은 LeRobot에서 가장 직관적이고 효과적인 텔레오퍼레이션 방법입니다:
+
+- **리더 로봇**: 사람이 직접 손으로 움직이는 로봇
+- **팔로워 로봇**: 리더의 동작을 실시간으로 따라하는 로봇
+- **장점**: 직관적이고 정확한 제어, 고품질 데이터 수집
+
+<Callout type="tip" title="왜 리더-팔로워 방식인가?">
+  리더-팔로워 방식은 로봇의 물리적 제약을 자연스럽게 반영하며, 인간의 직관적인 움직임을 그대로 전달할 수 있어 Imitation Learning에 최적의 데이터를 제공합니다.
+</Callout>
+
+## 하드웨어 준비
+
+### 필요한 장비
+
+1. **동일한 로봇 2대**: 리더용과 팔로워용
+2. **컴퓨터**: 두 로봇을 동시에 제어할 수 있는 시스템
+3. **USB 케이블**: 각 로봇 연결용
+4. **카메라**: 데이터 수집용 (선택사항)
+
+### 로봇 연결
+
+먼저 연결된 로봇의 포트를 확인합니다:
+
+<Callout type="info" title="로봇 이름과 포트 예시">
+  각 로봇은 고유한 이름(ID)과 포트를 가집니다:
+  
+  **예시 값들:**
+  - **로봇 이름(ID)**: `my_leader_arm`, `my_follower_arm` (원하는 이름 지정 가능)
+  - **포트**:
+    - macOS: `/dev/tty.usbmodem58760431541`
+    - Linux: `/dev/ttyUSB0`, `/dev/ttyUSB1`
+</Callout>
+
+설정이 어렵다면 하드웨어별 상세 가이드를 참조하세요:
+
+- **SO-101 로봇**: [SO-101 하드웨어 가이드](/lerobot/docs/physical-ai/lerobot/hardware/so-101)의 캘리브레이션 섹션 참조
+- **Koch v1.1 로봇**: [Koch 하드웨어 가이드](/lerobot/docs/physical-ai/lerobot/hardware/koch)의 포트 설정 섹션 참조
+
+
+## 리더-팔로워 텔레오퍼레이션 실행
+
+### 기본 텔레오퍼레이션
+
+SO-ARM101 로봇을 사용한 기본 텔레오퍼레이션 예제:
+
+```bash
+python -m lerobot.teleoperate \
+    --robot.type=so101_follower \
+    --robot.port=/dev/tty.usbmodem58760431541 \
+    --robot.id=my_awesome_follower_arm \
+    --teleop.type=so101_leader \
+    --teleop.port=/dev/tty.usbmodem58760431551 \
+    --teleop.id=my_awesome_leader_arm
+```
+
+Koch 로봇을 사용하는 경우:
+
+```bash
+python -m lerobot.teleoperate \
+    --robot.type=koch_follower \
+    --robot.port=/dev/ttyUSB0 \
+    --robot.id=koch_follower_01 \
+    --teleop.type=koch_leader \
+    --teleop.port=/dev/ttyUSB1 \
+    --teleop.id=koch_leader_01
+```
+
+### 카메라를 포함한 텔레오퍼레이션
+
+시각 정보를 함께 기록하려면 카메라를 추가합니다:
+
+```bash
+python -m lerobot.teleoperate \
+    --robot.type=koch_follower \
+    --robot.port=/dev/ttyUSB0 \
+    --robot.id=my_follower_arm \
+    --robot.cameras="{ front: {type: opencv, index_or_path: 0, width: 1920, height: 1080, fps: 30}}" \
+    --teleop.type=koch_leader \
+    --teleop.port=/dev/ttyUSB1 \
+    --teleop.id=my_leader_arm \
+    --display_data=true
+```
+
+여러 카메라를 사용하는 경우:
+
+```bash
+python -m lerobot.teleoperate \
+    --robot.type=so101_follower \
+    --robot.port=/dev/ttyUSB0 \
+    --robot.id=follower_arm \
+    --robot.cameras="{ 
+        front: {type: opencv, index_or_path: 0, width: 640, height: 480, fps: 30},
+        wrist: {type: opencv, index_or_path: 1, width: 640, height: 480, fps: 30}
+    }" \
+    --teleop.type=so101_leader \
+    --teleop.port=/dev/ttyUSB1 \
+    --teleop.id=leader_arm \
+    --display_data=true
+```
+
+### 주요 옵션 설명
+
+- `--robot.type`: 팔로워 로봇의 타입 (예: so101_follower, koch_follower)
+- `--robot.port`: 팔로워 로봇이 연결된 포트
+- `--robot.id`: 팔로워 로봇의 고유 ID (원하는 이름 지정)
+- `--teleop.type`: 리더 로봇의 타입 (예: so101_leader, koch_leader)
+- `--teleop.port`: 리더 로봇이 연결된 포트
+- `--teleop.id`: 리더 로봇의 고유 ID
+- `--robot.cameras`: 카메라 설정 (JSON 형식)
+- `--display_data`: 실시간 데이터 시각화 (true/false)
+
+## 데이터 수집과 함께 텔레오퍼레이션
+
+텔레오퍼레이션을 수행하면서 동시에 학습 데이터를 수집하려면 `record` 명령을 사용합니다:
+
+```bash
+python -m lerobot.record \
+    --robot.type=koch_follower \
+    --robot.port=/dev/ttyUSB0 \
+    --robot.id=follower_arm \
+    --robot.cameras="{ 
+        front: {type: opencv, index_or_path: 0, width: 640, height: 480, fps: 30}
+    }" \
+    --teleop.type=koch_leader \
+    --teleop.port=/dev/ttyUSB1 \
+    --teleop.id=leader_arm \
+    --dataset.repo_id=koch_pick_place_dataset \
+    --dataset.num_episodes=50 \
+    --display_data=true
+```
+
+### 데이터셋 옵션
+
+- `--dataset.repo_id`: 데이터셋 이름 (HuggingFace Hub 형식)
+- `--dataset.num_episodes`: 수집할 에피소드 수
+- `--dataset.fps`: 데이터 수집 주파수 (기본값: 30Hz)
+- `--dataset.local_dir`: 로컬 저장 경로 (선택사항)
+
+## 안전 및 주의사항
+
+<Callout type="warning" title="안전 수칙">
+  - 로봇 주변에 충분한 공간을 확보하세요
+  - 비상시 즉시 전원을 차단할 수 있도록 준비하세요 (Ctrl+C)
+    - 토크가 강한 로봇이라면 비상 차단은 필수입니다.  
+</Callout>
+
+## 팁과 모범 사례
+
+### 효과적인 데이터 수집
+
+1. **실패 포함**: 완벽한 성공뿐만 아니라 실패 케이스도 수집
+2. **반복 수행**: 같은 작업을 여러 번 반복하여 다양성 확보
+
+### 수집 전 체크리스트
+
+1. 포트 확인
+2. 권한 확인 (Linux)
+
+```bash
+sudo chmod 666 /dev/ttyUSB0
+sudo chmod 666 /dev/ttyUSB1
+```
+
+3. 카메라 확인
+```bash
+ls /dev/video*  # Linux
+# 또는 카메라 테스트
+python -c "import cv2; print(cv2.VideoCapture(0).isOpened())"
+```
+
+### 문제 해결
+
+<details>
+<summary>포트를 찾을 수 없음</summary>
+
+```bash
+# USB 장치 다시 스캔
+sudo dmesg | grep tty
+
+# 권한 문제 해결
+sudo usermod -a -G dialout $USER  # Linux
+# 로그아웃 후 다시 로그인
+```
+
+</details>
+
+<details>
+<summary>리더와 팔로워가 동기화되지 않음</summary>
+
+- 두 로봇의 포트가 올바르게 지정되었는지 확인
+- 캘리브레이션 파일 삭제 후 재시작:
+  ```bash
+  rm -rf ~/.cache/lerobot/calibration/
+  ```
+- USB 케이블이 제대로 연결되었는지 확인
+
+</details>
+
+<details>
+<summary>카메라가 작동하지 않음</summary>
+
+```bash
+# 카메라 인덱스 확인
+v4l2-ctl --list-devices  # Linux
+
+# OpenCV 카메라 테스트
+python -c "import cv2; cap = cv2.VideoCapture(0); print(cap.read()[0])"
+```
+
+</details>
+
+## 다른 제어 방법
+
+리더-팔로워 방식 외에도 다음과 같은 방법으로 로봇을 제어할 수 있습니다:
+
+- **게임패드**: PlayStation/Xbox 컨트롤러 사용
+- **키보드**: 키보드 단축키로 제어
+- **기타 원하는 방식**: 커스텀하게 아무 기기로나 조작이 가능합니다.
+
+이러한 방법들은 리더-팔로워 방식보다 직관성은 떨어지지만, 특정 상황에서 유용할 수 있습니다.
+
+### 애플 비전프로를 이용해서 AR 환경에서 손을 인식하여 컨트롤 하는 예시
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin: 2rem 0;">
+  <iframe 
+    src="https://www.youtube.com/embed/Jbhh8PyURmg" 
+    title="Apple Vision Pro로 로봇 제어하기"
+    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; border-radius: var(--radius-lg);"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+    allowfullscreen
+  ></iframe>
+</div>
+
+
+
+
+## 다음 단계
+
+리더-팔로워 텔레오퍼레이션 설정이 완료되었다면:
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin: 2rem 0;">
+  <a href="/lerobot/docs/physical-ai/lerobot/software/data-collection" style="padding: 1.5rem; background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); text-decoration: none; transition: all var(--transition-base);">
+    <h3 style="margin: 0 0 0.5rem 0; color: var(--color-accent);"><i class="fas fa-database"></i> 데이터 수집</h3>
+    <p style="margin: 0; color: var(--color-text-secondary); font-size: var(--text-sm);">수집한 데이터 관리 및 최적화</p>
+  </a>
+  
+  <a href="/lerobot/docs/physical-ai/lerobot/software/training" style="padding: 1.5rem; background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); text-decoration: none; transition: all var(--transition-base);">
+    <h3 style="margin: 0 0 0.5rem 0; color: var(--color-accent);"><i class="fas fa-brain"></i> 모델 학습</h3>
+    <p style="margin: 0; color: var(--color-text-secondary); font-size: var(--text-sm);">수집한 데이터로 AI 모델 학습</p>
+  </a>
+</div>

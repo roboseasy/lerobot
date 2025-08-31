@@ -17,6 +17,13 @@ const isActivePath = (href: string, current: string) => {
   return normalizedHref === normalizedCurrent;
 };
 
+// 현재 경로에 따른 네비게이션 섹션 결정
+const isLeRobotPage = currentPath.includes('/lerobot/docs/physical-ai/lerobot/intro') || 
+                      currentPath.includes('/lerobot/docs/physical-ai/lerobot/getting-started') || 
+                      currentPath.includes('/lerobot/docs/physical-ai/lerobot/hardware');
+
+const isSOArmPage = currentPath.includes('/lerobot/docs/physical-ai/lerobot/so-arm');
+
 // 네비게이션 구조
 type NavItem = {
   title: string;
@@ -27,38 +34,43 @@ type NavItem = {
 
 const navigation: NavItem[] = [
   {
-    title: 'LeRobot',
+    title: 'LeRobot 시작하기',
     items: [
       { title: '소개', href: '/lerobot/docs/physical-ai/lerobot/intro' },
       { title: '시작하기', href: '/lerobot/docs/physical-ai/lerobot/getting-started' },
+      { title: '하드웨어 선택 가이드', href: '/lerobot/docs/physical-ai/lerobot/hardware' },
+    ]
+  },
+  {
+    title: 'SO ARM 시작하기',
+    items: [
+      { title: '개요', href: '/lerobot/docs/physical-ai/lerobot/so-arm' },
       {
         title: '하드웨어',
         items: [
-          { title: '선택 가이드', href: '/lerobot/docs/physical-ai/lerobot/hardware' },
-          { title: 'SO-ARM101', href: '/lerobot/docs/physical-ai/lerobot/hardware/so-101' },
-          { title: 'Koch v1.1', href: '/lerobot/docs/physical-ai/lerobot/hardware/koch' },
+          { title: '조립', href: '/lerobot/docs/physical-ai/lerobot/so-arm/hardware/assembly' },
         ]
       },
       {
         title: '소프트웨어',
         items: [
-          { title: '설치', href: '/lerobot/docs/physical-ai/lerobot/software/installation' },
-          { title: 'Teleoperation', href: '/lerobot/docs/physical-ai/lerobot/software/teleoperation' },
-          { title: '데이터 수집', href: '/lerobot/docs/physical-ai/lerobot/software/data-collection' },
-          { title: '학습', href: '/lerobot/docs/physical-ai/lerobot/software/training' },
+          { title: '설치', href: '/lerobot/docs/physical-ai/lerobot/so-arm/software/installation' },
+          { title: 'Teleoperation', href: '/lerobot/docs/physical-ai/lerobot/so-arm/software/teleoperation' },
+          { title: '데이터 수집', href: '/lerobot/docs/physical-ai/lerobot/so-arm/software/data-collection' },
+          { title: '학습', href: '/lerobot/docs/physical-ai/lerobot/so-arm/software/training' },
         ]
       },
       {
         title: '튜토리얼',
         items: [
-          { title: 'SO-ARM101 Pick & Place 튜토리얼', href: '/lerobot/docs/physical-ai/lerobot/tutorials/imitation-learning' },
+          { title: 'Pick & Place', href: '/lerobot/docs/physical-ai/lerobot/so-arm/tutorials/imitation-learning' },
         ]
       },
       {
         title: 'Policy',
         items: [
-          { title: 'ACT', href: '/lerobot/docs/physical-ai/lerobot/policy/act' },
-          { title: 'SmolVLA', href: '/lerobot/docs/physical-ai/lerobot/policy/smolvla' },
+          { title: 'ACT', href: '/lerobot/docs/physical-ai/lerobot/so-arm/policy/act' },
+          { title: 'SmolVLA', href: '/lerobot/docs/physical-ai/lerobot/so-arm/policy/smolvla' },
         ]
       }
     ]
@@ -111,7 +123,18 @@ const navigation: NavItem[] = [
         <!-- 사이드바 -->
         <aside class="docs-sidebar">
           <nav class="sidebar-nav">
-            {navigation.map((section) => (
+            {navigation.filter((section) => {
+              // LeRobot 페이지에서는 LeRobot 섹션만 표시
+              if (isLeRobotPage) {
+                return section.title === 'LeRobot 시작하기';
+              }
+              // SO ARM 페이지에서는 SO ARM 섹션만 표시
+              if (isSOArmPage) {
+                return section.title === 'SO ARM 시작하기';
+              }
+              // 기본적으로 모든 섹션 표시
+              return true;
+            }).map((section) => (
               <div class="nav-section">
                 <h3>
                   <i class={section.title === 'Physical AI' ? 'fas fa-robot' : 'fas fa-brain'}></i>
