@@ -58,7 +58,7 @@ python -m lerobot.teleoperate \
   --teleop.type=so101_leader \
   --teleop.port=/dev/ttyACM0 \
   --teleop.id=leader \
-  --display_data=true
+  --display_data=false
 ```
 
 | 옵션명           | 설명                       | 예시 값         |
@@ -117,10 +117,11 @@ python -m lerobot.teleoperate \
   --robot.type=so101_follower \
   --robot.port=/dev/ttyACM1 \
   --robot.id=follower \
-  --robot.cameras="{front: {type: opencv, index_or_path: 0, width: 1920, height: 1080, fps: 15}, wrist: {type: opencv, index_or_path: 1, width: 1280, height: 720, fps: 30}}" \
+  --robot.cameras="{front: {type: opencv, index_or_path: 0, width: 640, height: 480, fps: 25}, wrist: {type: opencv, index_or_path: 2, width: 640, height: 480, fps: 25}}" \
   --teleop.type=so101_leader \
   --teleop.port=/dev/ttyACM0 \
-  --teleop.id=leader
+  --teleop.id=leader \
+  --display_data=true
 ```
 
 - 여러 카메라를 동시에 사용할 수 있습니다.
