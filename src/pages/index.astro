@@ -138,14 +138,14 @@ import Layout from '../layouts/Layout.astro';
   <section class="features">
     <h2>모두를 위한 Physical AI</h2>
     <div class="feature-grid">
-      <div class="feature-card">
-        <h3>판매</h3>
+      <a href="/lerobot/shop" class="feature-card">
+        <h3>구매</h3>
         <p>LeRobot 시리즈 제품을 판매하고 있습니다.</p>
-      </div>
-      <div class="feature-card">
+      </a>
+      <a href="/lerobot/docs" class="feature-card">
         <h3>오픈소스</h3>
         <p>공개된 문서를 통해 스스로 따라하며 익힐 수 있습니다.</p>
-      </div>
+      </a>
       <div class="feature-card">
         <h3>강의</h3>
         <p>문서로 따라하기 힘드신 분들을 위해 온/오프라인 강의를 제공하고 있습니다.</p>
@@ -160,8 +160,8 @@ import Layout from '../layouts/Layout.astro';
         <h3>조립 영상</h3>
         <div class="youtube-embed">
           <iframe 
-            src="https://www.youtube.com/embed/lORyGR0sF1Q" 
-            title="조립 영상"
+            src="https://www.youtube.com/embed/2VXQlnhWyis" 
+            title="So-Arm max 조립 영상"
             frameborder="0" 
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
             allowfullscreen>
@@ -486,6 +486,18 @@ import Layout from '../layouts/Layout.astro';
     transition: all 0.3s;
     position: relative;
     overflow: hidden;
+  }
+
+  /* 링크 카드 스타일 */
+  a.feature-card {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    cursor: pointer;
+  }
+
+  a.feature-card:hover {
+    color: inherit;
   }
   
   .feature-card::before {

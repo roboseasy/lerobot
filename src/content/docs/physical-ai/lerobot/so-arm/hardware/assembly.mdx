@@ -20,12 +20,10 @@ SO-101은 6축 오픈소스 로봇 팔로, 3D 프린팅 부품과 STS3215 서보
 
 ### 2.1 부품 소싱 및 3D 프린팅
 
-- [SO-ARM100 README](https://github.com/TheRobotStudio/SO-ARM100)에서 부품 목록(BOM)과 3D 프린팅 파일을 확인하세요.
-- 3D 프린팅이 처음이거나 프린터가 없다면, 주변에 출력 대행을 문의하세요.
+- [SO-ARM100/101 README](https://github.com/TheRobotStudio/SO-ARM100)에서 부품 목록(BOM)과 3D 프린팅 파일을 확인하세요.
+- 로보시지는 로보시지만의 3D 프린팅을 제공합니다. 더욱 넓은 확장성과 불편한 부분을 개선하였습니다.
+- [3D 파츠만 구매하러가기](https://smartstore.naver.com/roboseasy/products/12361795642)
 
-<Callout type="warning">
-3D 프린팅 부품의 서포트(지지대)는 조립 전 반드시 제거해야 합니다. 작은 드라이버를 사용하면 쉽게 제거할 수 있습니다.
-</Callout>
 
 ### 2.2 LeRobot 설치
 
@@ -265,31 +263,36 @@ lerobot-setup-motors \
 
 ---
 
-## 5. 캘리브레이션
+## 5. 조립 영상
 
-리더와 팔로워가 동일한 위치값을 갖도록 캘리브레이션이 필요합니다.
+조립 영상을 같이 보면서 진행해 보세요!
 
-#### Leader 캘리브레이션
-
-```bash
-lerobot-calibrate \
-    --teleop.type=so101_leader \
-    --teleop.port=/dev/ttyACM0 \
-    --teleop.id=내_리더암_이름  # 예: my_leader_arm
-```
-
-#### Follower 캘리브레이션
-
-```bash
-lerobot-calibrate \
-    --robot.type=so101_follower \
-    --robot.port=/dev/ttyACM1 \
-    --robot.id=내_팔로워암_이름 # 예: my_follower_arm
-```
-
-<Callout type="info">
-캘리브레이션 시 모든 관절을 중앙 위치로 맞춘 후, 각 관절을 끝까지 움직여야 합니다. 터미널에서 보이는 수치를 확인하세요.
-</Callout>
+<div class="youtube-grid">
+  <div class="youtube-card">
+    <h3>팔로우암 조립 영상</h3>
+    <div class="youtube-embed">
+      <iframe 
+        src="https://www.youtube.com/embed/2VXQlnhWyis" 
+        title="So-Arm Max 팔로우암 조립 영상"
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+  <div class="youtube-card">
+    <h3>리더암 조립 영상</h3>
+    <div class="youtube-embed">
+      <iframe 
+        src="https://www.youtube.com/embed/Y0j7m4XVNRs" 
+        title="So-Arm Max 리더암 조립 영상"
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+</div>
 
 ---
 
