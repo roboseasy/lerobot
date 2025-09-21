@@ -48,7 +48,7 @@ import Layout from '../../layouts/Layout.astro';
     <section class="docs-section">
       <h2>Our Robot</h2>
       <div class="docs-grid">
-        <a class="doc-card external-link" onclick="alert('Comming Soon!')" style="cursor: pointer;">
+        <a class="doc-card dual-arm-card external-link" onclick="alert('Comming Soon!')" style="cursor: pointer;">
           <h3>🦾 양팔 로봇</h3>
           <p>LeRobot SO ARM 을 이용한 양팔 로봇</p>
           <span class="external-icon">↗</span>
@@ -238,7 +238,8 @@ import Layout from '../../layouts/Layout.astro';
   .lerobot-card,
   .soarm-card,
   .lekiwi-card,
-  .leisaac-card {
+  .leisaac-card,
+  .dual-arm-card {
     position: relative;
     overflow: hidden;
     background: #111 !important;
@@ -248,7 +249,8 @@ import Layout from '../../layouts/Layout.astro';
   .lerobot-card::after,
   .soarm-card::after,
   .lekiwi-card::after,
-  .leisaac-card::after {
+  .leisaac-card::after,
+  .dual-arm-card::after {
     content: '';
     position: absolute;
     top: 5%;
@@ -278,22 +280,30 @@ import Layout from '../../layouts/Layout.astro';
       linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
       url('/lerobot/images/lerobot/roboseasy_lekiwi.jpg');
   }
+  
   .leisaac-card::after {
     background-image:
       linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
       url('/lerobot/images/lerobot/leisaac.jpg');
   }
+  .dual-arm-card::after {
+    background-image:
+      linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+      url('/lerobot/images/products/xlerobot_dual-arm-mobile-household-robot.jpeg');
+  }
   .leisaac-card:hover::after,
   .lemujoco-card:hover::after,
   .lerobot-card:hover::after,
   .soarm-card:hover::after,
-  .lekiwi-card:hover::after {
+  .lekiwi-card:hover::after,
+  .dual-arm-card:hover::after {
     opacity: 1;
   }
   .leisaac-card:hover,
   .lerobot-card:hover,
   .soarm-card:hover,
-  .lekiwi-card:hover {
+  .lekiwi-card:hover,
+  .dual-arm-card:hover {
     background: #111 !important;
   }
   .leisaac-card:hover h3,
@@ -303,7 +313,9 @@ import Layout from '../../layouts/Layout.astro';
   .soarm-card:hover h3,
   .soarm-card:hover p,
   .lekiwi-card:hover h3,
-  .lekiwi-card:hover p {
+  .lekiwi-card:hover p,
+  .dual-arm-card:hover h3,
+  .dual-arm-card:hover p {
     text-shadow: 0 2px 8px rgba(0,0,0,0.7), 0 0 2px #000;
     position: relative;
     z-index: 1;

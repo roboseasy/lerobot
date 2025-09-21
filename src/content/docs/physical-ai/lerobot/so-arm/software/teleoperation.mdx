@@ -22,6 +22,27 @@ SO-ARM 두 대와 Ubuntu 환경에서 USB 포트(`/dev/ttyACM0`, `/dev/ttyACM1`)
 
 ---
 
+## 실습 영상
+
+실습 영상을 함께 같이 보면서 같이 진행해 보세요!
+
+<div class="youtube-grid">
+  <div class="youtube-card">
+    <h3>텔레오퍼레이션 영상</h3>
+    <div class="youtube-embed">
+      <iframe 
+        src="https://www.youtube.com/embed/x55GjA5352U" 
+        title="So-Arm Max 텔레오퍼레이션 영상"
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+</div>
+
+---
+
 ## 2. 하드웨어 및 환경 준비
 
 - **SO-ARM 로봇 2대** (리더/팔로워)
@@ -37,6 +58,14 @@ sudo chmod 666 /dev/ttyACM0
 sudo chmod 666 /dev/ttyACM1
 ```
 
+```bash
+# 가상환경 활성화 
+cd lerobot
+
+# 가상환경 활성화
+source .venv/bin/activate
+```
+
 ---
 
 ## 3. 캘리브레이션 필수
@@ -45,6 +74,7 @@ sudo chmod 666 /dev/ttyACM1
 자세한 방법은 [SO-ARM 캘리브레이션 가이드](/lerobot/docs/physical-ai/lerobot/so-arm/software/calibration) 참고.
 
 ---
+
 
 ## 4. 텔레오퍼레이션 실행 예시
 
