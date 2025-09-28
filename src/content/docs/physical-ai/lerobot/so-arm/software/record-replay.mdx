@@ -97,6 +97,14 @@ sudo usermod -a -G dialout $USER
 # 로그아웃 후 다시 로그인
 ```
 
+```
+# 가상환경 활성화 
+cd lerobot
+
+# 가상환경 활성화
+source .venv/bin/activate
+```
+
 ---
 
 ## Record (데이터 수집)
@@ -107,14 +115,16 @@ So-ARM 로봇으로 텔레오퍼레이션 데이터를 수집하는 기본 명�
 
 ```bash
 lerobot-record \
-    --robot.type=so101_follower \
-    --robot.port=/dev/ttyACM1 \
-    --robot.id=follower \
     --teleop.type=so101_leader \
-    --teleop.port=/dev/ttyACM0 \
-    --teleop.id=leader \
+    --teleop.port=/dev/so101_leader_R \
+    --teleop.id=leader_R \
+    --robot.type=so101_follower \
+    --robot.port=/dev/so101_follower_R \
+    --robot.id=follower_R \
     --dataset.repo_id=${HF_USER}/so101_pick_place \
-    --dataset.num_episodes=10 \
+    --dataset.num_episodes=1 \
+    --dataset.episode_time_s=15 \
+    --dataset.reset_time_s=3 \
     --dataset.single_task="Pick up the cube and place it in the box"
 ```
 
@@ -122,22 +132,33 @@ lerobot-record \
 
 시각 정보와 함께 데이터를 수집하려면 카메라 설정을 추가합니다:
 
+먼저 연결된 카메라 확인
+```
+python -m lerobot.find_cameras
+```
+
+다음 카메라 추가
+
 ```bash
 lerobot-record \
-    --robot.type=so101_follower \
-    --robot.port=/dev/ttyACM1 \
-    --robot.id=follower \
-    --robot.cameras='{ 
-        front: {type: opencv, index_or_path: 0, width: 640, height: 480, fps: 30},
-        wrist: {type: opencv, index_or_path: 1, width: 640, height: 480, fps: 30}
-    }' \
     --teleop.type=so101_leader \
-    --teleop.port=/dev/ttyACM0 \
-    --teleop.id=leader \
-    --dataset.repo_id=${HF_USER}/so101_visual_manipulation \
-    --dataset.num_episodes=25 \
-    --dataset.single_task="Pick and place objects using visual feedback" \
+    --teleop.port=/dev/so101_leader_R \
+    --teleop.id=leader_R \
+    --robot.type=so101_follower \
+    --robot.port=/dev/so101_follower_R \
+    --robot.id=follower_R \
+    --robot.cameras='{ 
+        top: {type: opencv, index_or_path: 2, width: 640, height: 480, fps: 25},
+        wrist: {type: opencv, index_or_path: 4, width: 640, height: 480, fps: 25},
+        belly: {type: opencv, index_or_path: 6, width: 640, height: 480, fps: 30}
+    }' \
+    --dataset.repo_id=${HF_USER}/so101_pick_place_vis \
+    --dataset.num_episodes=3 \
+    --dataset.episode_time_s=10 \
+    --dataset.reset_time_s=3 \
+    --dataset.single_task="Pick up the cube and place it in the box" \
     --display_data=true
+
 ```
 
 ### 주요 Record 옵션 설명
@@ -206,26 +227,17 @@ lerobot-record \
 
 ### 기본 Replay
 
+특정 에피소드 재생: 0번 에피소드
+
 ```bash
 lerobot-replay \
     --robot.type=so101_follower \
-    --robot.port=/dev/ttyACM1 \
-    --robot.id=follower \
-    --dataset.repo_id=${HF_USER}/so101_pick_place \
+    --robot.port=/dev/so101_follower_R \
+    --robot.id=follower_R \
+    --dataset.repo_id=${HF_USER}/so101_pick_place_vis \
     --dataset.episode=0
 ```
 
-### 특정 에피소드 재생
-
-```bash
-lerobot-replay \
-    --robot.type=so101_follower \
-    --robot.port=/dev/ttyACM1 \
-    --robot.id=follower \
-    --dataset.repo_id=${HF_USER}/so101_pick_place \
-    --dataset.episode=5 \
-    --dataset.fps=30
-```
 
 ### 로컬 데이터셋 재생
 
